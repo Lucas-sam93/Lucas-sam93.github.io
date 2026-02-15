@@ -1,4 +1,4 @@
-# Lucas Sam — Developer & Data Analyst
+# Lucas Sam — Data Analyst
 
 This is my personal portfolio, where I share the projects I've been working on. I like building things that are practical and solve real problems — whether that's helping someone land a job or making sense of messy data.
 
@@ -26,4 +26,4 @@ The portfolio itself is a single-page static site using Tailwind CSS and vanilla
 
 ## Get in touch
 
-Feel free to reach out through [GitHub](https://github.com/Lucas-sam93) if you'd like to connect or collaborate on something.
+Feel free to reach out through [GitHub](https://github.com/Lucas-sam93), [LinkedIn](https://www.linkedin.com/in/lucas-sam-54aba3106), or [email](mailto:lucas.sam93@gmail.com) if you'd like to connect or collaborate on something.
