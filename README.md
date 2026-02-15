@@ -4,7 +4,7 @@ Project Portfolio
 
 This is the source code for my professional portfolio, hosted via GitHub Pages. It showcases my transition from a fitness professional into **Data Analytics**, highlighting my ability to bridge the gap between technical data manipulation and strategic business decision-making.
 
-**Live Site:** [[https://lucas-sam93.github.io/](https://lucas-sam93.github.io/)](https://lucas-sam93.github.io/lucassam.github.io/)
+**Live Site:** https://lucas-sam93.github.io/lucassam.github.io/
 
 ---
 
