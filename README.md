@@ -18,7 +18,7 @@ An interactive dashboard that explores the UK Gender Pay Gap using public data. 
 
 Built with Python, Plotly, and Pandas.
 
-[Source code](https://github.com/Lucas-sam93/gender-pay-gap-analysis)
+[Live dashboard](https://lucas-sam93.github.io/gender-pay-gap-analysis/) · [Source code](https://github.com/Lucas-sam93/gender-pay-gap-analysis)
 
 ## About this site
 
