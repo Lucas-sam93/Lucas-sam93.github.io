@@ -1,29 +1,37 @@
 # Lucas Sam — Data Analyst
 
-This is my personal portfolio, where I share the projects I've been working on. I like building things that are practical and solve real problems — whether that's helping someone land a job or making sense of messy data.
+This is my personal portfolio where I share projects that bridge the gap between messy data and practical solutions. I focus on building tools that solve real problems—from career optimization to strategic policy analysis.
 
-Take a look around: **[lucas-sam93.github.io](https://lucas-sam93.github.io)**
+🔗 **Live Portfolio:** [lucas-sam93.github.io]
 
-## What's here
+---
 
-### JD-Match
-A resume optimization tool powered by Google's Gemini AI. You paste in a job description, upload your resume, and it tells you exactly where the gaps are — no guesswork. It scores your match, flags missing keywords, and even rewrites bullet points to be stronger.
+## 🚀 Featured Projects
 
-Built with React, Tailwind CSS, Node.js, and the Gemini API.
+### 🤖 JD-Match (AI Resume Optimizer)
+A full-stack tool powered by **Google's Gemini API** to bridge the gap between candidates and ATS systems. 
+* **The Problem:** Candidates often struggle to identify why they aren't passing initial screenings.
+* **The Solution:** Analyzes job descriptions vs. resumes to provide a match score, flag missing keywords, and suggest AI-driven bullet point rewrites.
+* **Stack:** React, Tailwind CSS, Node.js, Gemini API.
+* [Live App](#) · [Source Code](#)
 
-[Live app](https://jd-match.vercel.app) · [Source code](https://github.com/Lucas-sam93/JD-Match)
+### 📊 UK Gender Pay Gap Analysis
+An interactive data story exploring pay disparity using official UK public data.
+* **The Problem:** Identifying hidden drivers of the gender pay gap across different industries.
+* **The Solution:** A dynamic dashboard that models trends over time and identifies regional outliers to support strategic policy briefings.
+* **Stack:** Python, Pandas, Plotly.
+* [Live Dashboard](#) · [Source Code](#)
 
-### Gender Pay Gap Analysis
-An interactive dashboard that explores the UK Gender Pay Gap using public data. It breaks things down by sector, region, and trends over time — all through filterable, dynamic charts.
+---
 
-Built with Python, Plotly, and Pandas.
+## 🛠️ Tech & Tools
+* **Data:** Python (Pandas, NumPy), SQL (PostgreSQL), Excel.
+* **Visualization:** Plotly, Tableau, Power BI.
+* **Web & Deployment:** React, Jekyll, Tailwind CSS, GitHub Actions.
 
-[Live dashboard](https://lucas-sam93.github.io/gender-pay-gap-analysis/) · [Source code](https://github.com/Lucas-sam93/gender-pay-gap-analysis)
+## 📫 Get in Touch
+I'm always open to discussing data projects or potential collaborations.
+[GitHub](https://github.com/lucas-sam93) | [LinkedIn](#) | [Email](mailto:your-email@example.com)
 
-## About this site
-
-The portfolio itself is a single-page static site using Tailwind CSS and vanilla JavaScript. No frameworks, no build step — just HTML that deploys straight to GitHub Pages.
-
-## Get in touch
-
-Feel free to reach out through [GitHub](https://github.com/Lucas-sam93), [LinkedIn](https://www.linkedin.com/in/lucas-sam-54aba3106), or [email](mailto:lucas.sam93@gmail.com) if you'd like to connect or collaborate on something.
+---
+*Built with Jekyll & GitHub Actions*
