@@ -1,37 +1,33 @@
 # Lucas Sam — Data Analyst
 
-This is my personal portfolio where I share projects that bridge the gap between messy data and practical solutions. I focus on building tools that solve real problems—from career optimization to strategic policy analysis.
+I'm a data analyst who enjoys turning raw data into clear, actionable insights. I work across the full pipeline — from cleaning and exploring datasets to building dashboards and web tools that make the results accessible to others.
 
-🔗 **Live Portfolio:** [lucas-sam93.github.io]
+This is my portfolio, where I share a few of the projects I've been working on.
 
----
+**[lucas-sam93.github.io](https://lucas-sam93.github.io)**
 
-## 🚀 Featured Projects
+## Projects
 
-### 🤖 JD-Match (AI Resume Optimizer)
-A full-stack tool powered by **Google's Gemini API** to bridge the gap between candidates and ATS systems. 
-* **The Problem:** Candidates often struggle to identify why they aren't passing initial screenings.
-* **The Solution:** Analyzes job descriptions vs. resumes to provide a match score, flag missing keywords, and suggest AI-driven bullet point rewrites.
-* **Stack:** React, Tailwind CSS, Node.js, Gemini API.
-* [Live App](#) · [Source Code](#)
+### JD-Match
+A resume optimization tool powered by Google's Gemini AI. You paste in a job description, upload your resume, and it tells you exactly where the gaps are — no guesswork. It scores your alignment across skills, achievements, and ATS compatibility, flags missing keywords, and generates rewritten bullet points you can apply with one click.
 
-### 📊 UK Gender Pay Gap Analysis
-An interactive data story exploring pay disparity using official UK public data.
-* **The Problem:** Identifying hidden drivers of the gender pay gap across different industries.
-* **The Solution:** A dynamic dashboard that models trends over time and identifies regional outliers to support strategic policy briefings.
-* **Stack:** Python, Pandas, Plotly.
-* [Live Dashboard](#) · [Source Code](#)
+Built with React, Tailwind CSS, Node.js, and the Gemini API.
 
----
+[Live app](https://jd-match.vercel.app) · [Source code](https://github.com/Lucas-sam93/JD-Match)
 
-## 🛠️ Tech & Tools
-* **Data:** Python (Pandas, NumPy), SQL (PostgreSQL), Excel.
-* **Visualization:** Plotly, Tableau, Power BI.
-* **Web & Deployment:** React, Jekyll, Tailwind CSS, GitHub Actions.
+### Gender Pay Gap Analysis
+An interactive dashboard exploring the UK Gender Pay Gap using publicly available government data. It visualises trends over time, breaks down disparities by sector and region, and lets users filter the data to surface patterns that matter to them.
 
-## 📫 Get in Touch
-I'm always open to discussing data projects or potential collaborations.
-[GitHub](https://github.com/lucas-sam93) | [LinkedIn](#) | [Email](mailto:your-email@example.com)
+Built with Python, Plotly, and Pandas.
 
----
-*Built with Jekyll & GitHub Actions*
+[Live dashboard](https://lucas-sam93.github.io/gender-pay-gap-analysis/) · [Source code](https://github.com/Lucas-sam93/gender-pay-gap-analysis)
+
+## About this site
+
+This portfolio is a single-page static site built with Tailwind CSS and vanilla JavaScript — no frameworks, no build step. It deploys straight to GitHub Pages from this repo.
+
+## Get in touch
+
+I'm always open to connecting with other analysts, developers, and anyone working on interesting problems. Feel free to reach out.
+
+[GitHub](https://github.com/Lucas-sam93) · [LinkedIn](https://www.linkedin.com/in/lucas-sam-54aba3106) · [Email](mailto:lucas.sam93@gmail.com)
