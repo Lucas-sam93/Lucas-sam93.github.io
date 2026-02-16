@@ -4,7 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Sam — Data Analyst</title>
-  <meta name="description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
+  <meta name="description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems with AI, data visualization, and interactive dashboards." />
+  <meta name="author" content="Lucas Sam" />
+  <meta name="keywords" content="Lucas Sam, Data Analyst, SQL, Tableau, Data Visualization, Data Storytelling, Prompt Engineering, Portfolio" />
+  <meta property="og:title" content="Lucas Sam — Data Analyst" />
+  <meta property="og:description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lucas-sam93.github.io" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lucas Sam — Data Analyst" />
+  <meta name="twitter:description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
+  <link rel="canonical" href="https://lucas-sam93.github.io" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -41,9 +51,85 @@
     .scroll-indicator {
       animation: float 2.5s ease-in-out infinite;
     }
+    /* Navbar */
+    .nav-scrolled {
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    /* Timeline */
+    .timeline-line {
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(129, 140, 248, 0.4), transparent);
+    }
+    /* Skill badge hover */
+    .skill-badge {
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .skill-badge:hover {
+      transform: translateY(-2px);
+      border-color: rgba(129, 140, 248, 0.3);
+    }
   </style>
 </head>
 <body class="bg-gray-950 text-white font-sans antialiased">
+
+  <!-- ── Navigation ── -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-lg font-bold text-white tracking-tight">LS</a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a>
+        <a href="#experience" class="text-sm text-gray-400 hover:text-white transition-colors">Experience</a>
+        <a href="#skills" class="text-sm text-gray-400 hover:text-white transition-colors">Skills</a>
+        <a href="#projects" class="text-sm text-gray-400 hover:text-white transition-colors">Projects</a>
+        <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a>
+        <a href="https://docs.google.com/document/d/1-Jxxm6Nj6cqZARFNL6yWpzH0cxKBkuVV/edit#heading=h.7a8c466q5za" target="_blank" rel="noopener noreferrer"
+           class="text-sm font-medium text-indigo-400 border border-indigo-400/30 px-4 py-1.5 rounded-full hover:bg-indigo-400/10 transition-colors">
+          Resume
+        </a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden text-gray-400 hover:text-white p-2" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-gray-950/95 backdrop-blur-lg flex flex-col items-center justify-center gap-8 md:hidden">
+      <button id="menu-close" class="absolute top-6 right-6 text-gray-400 hover:text-white p-2" aria-label="Close menu">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <a href="#about" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">About</a>
+      <a href="#experience" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Experience</a>
+      <a href="#skills" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Skills</a>
+      <a href="#projects" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Projects</a>
+      <a href="#contact" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Contact</a>
+      <a href="https://docs.google.com/document/d/1-Jxxm6Nj6cqZARFNL6yWpzH0cxKBkuVV/edit#heading=h.7a8c466q5za" target="_blank" rel="noopener noreferrer"
+         class="text-xl font-medium text-indigo-400 border border-indigo-400/30 px-6 py-2 rounded-full hover:bg-indigo-400/10 transition-colors">
+        Resume
+      </a>
+    </div>
+  </nav>
 
   <!-- ── Hero ── -->
   <section class="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
@@ -51,6 +137,11 @@
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(99,102,241,0.15)_0%,_transparent_60%)]"></div>
 
     <div class="relative z-10 text-center max-w-2xl fade-in">
+      <!-- Avatar -->
+      <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full mx-auto mb-6 border-2 border-indigo-400/30 overflow-hidden bg-white/5">
+        <img src="Lucas_Headshot.png" alt="Lucas Sam" class="w-full h-full object-cover" />
+      </div>
+
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
         Lucas Sam
       </h1>
@@ -62,7 +153,7 @@
       </p>
 
       <!-- Social Links -->
-      <div class="flex items-center justify-center gap-5">
+      <div class="flex items-center justify-center gap-5 mb-6">
         <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
            class="text-gray-400 hover:text-white transition-colors p-2" aria-label="GitHub">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -82,11 +173,20 @@
           </svg>
         </a>
       </div>
+
+      <!-- Resume CTA -->
+      <a href="https://docs.google.com/document/d/1-Jxxm6Nj6cqZARFNL6yWpzH0cxKBkuVV/edit#heading=h.7a8c466q5za" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold rounded-full transition-colors">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
+        </svg>
+        View Resume
+      </a>
     </div>
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-10 scroll-indicator">
-      <a href="#projects" class="text-gray-500 hover:text-gray-300 transition-colors" aria-label="Scroll to projects">
+      <a href="#about" class="text-gray-500 hover:text-gray-300 transition-colors" aria-label="Scroll to about">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
         </svg>
@@ -94,15 +194,103 @@
     </div>
   </section>
 
+  <!-- ── About Me ── -->
+  <section id="about" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">About Me</h2>
+    <p class="text-gray-400 mb-8 max-w-xl fade-in">A bit about my background and what drives me.</p>
+
+    <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8 sm:p-10 card-glow transition-all duration-300 fade-in">
+      <p class="text-gray-300 leading-relaxed mb-4">
+        I'm a Data Analyst who enjoys turning raw data into clear, actionable insights. I work across the full
+        pipeline — from cleaning and exploring datasets to building dashboards and web tools that make the results
+        accessible to others.
+      </p>
+      <p class="text-gray-300 leading-relaxed mb-4">
+        With a focus on SQL, Tableau, and modern visualization tools, I bring a builder's mindset to analytics —
+        creating tools like JD-Match that go beyond static reports to solve real problems. I'm passionate about
+        data storytelling and making complex information easy to understand.
+      </p>
+      <p class="text-gray-300 leading-relaxed">
+        I'm always looking to connect with other analysts, developers, and anyone working on interesting problems
+        at the intersection of data and technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section id="experience" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Experience</h2>
+    <p class="text-gray-400 mb-12 max-w-xl fade-in">Where I've worked and what I've contributed.</p>
+
+    <div class="relative pl-8 sm:pl-10 space-y-8">
+      <!-- Timeline line -->
+      <div class="timeline-line"></div>
+
+      <!-- Experience item 1 -->
+      <div class="relative fade-in">
+        <div class="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full bg-indigo-500 border-4 border-gray-950"></div>
+        <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+            <h3 class="text-lg font-bold text-white">Freelance Personal Trainer</h3>
+            <span class="text-sm text-indigo-400 font-medium">Jan 2022 — Present</span>
+          </div>
+          <p class="text-sm text-gray-400 mb-3">Self-Employed, Singapore</p>
+          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-inside">
+            <li>Analysed longitudinal physiological data for 70+ clients across 4+ years, identifying trends and optimizing training interventions.</li>
+            <li>Developed data-driven assessment frameworks to monitor client progress, detecting performance plateaus 3-4 weeks earlier than traditional methods.</li>
+            <li>Synthesized complex nutritional research and client dietary data into actionable meal plans, improving client adherence rates by 35%.</li>
+            <li>Translated scientific literature and statistical findings into evidence-based recommendations for non-technical clients, maintaining 92% client retention rate.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience item 2 -->
+      <div class="relative fade-in">
+        <div class="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full bg-indigo-500/60 border-4 border-gray-950"></div>
+        <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 card-glow transition-all duration-300">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+            <h3 class="text-lg font-bold text-white">Personal Trainer</h3>
+            <span class="text-sm text-indigo-400 font-medium">Jan 2020 — Dec 2021</span>
+          </div>
+          <p class="text-sm text-gray-400 mb-3">PURE Fitness, Singapore</p>
+          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-inside">
+            <li>Designed measurable training and nutrition protocols with defined KPIs, conducting bi-weekly assessments to track progress against baseline metrics.</li>
+            <li>Leveraged performance data and visual reporting to demonstrate ROI to prospective clients, converting 60% of consultations into 12+ week training packages.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section id="skills" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Skills</h2>
+    <p class="text-gray-400 mb-12 max-w-xl fade-in">Technologies and tools I work with regularly.</p>
+
+    <div class="flex flex-wrap gap-3 fade-in">
+      <span class="skill-badge text-sm font-medium text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full">SQL</span>
+      <span class="skill-badge text-sm font-medium text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full">Tableau</span>
+      <span class="skill-badge text-sm font-medium text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full">Data Visualization</span>
+      <span class="skill-badge text-sm font-medium text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full">Data Storytelling</span>
+      <span class="skill-badge text-sm font-medium text-gray-300 bg-white/5 border border-white/10 px-4 py-2 rounded-full">Prompt Engineering</span>
+    </div>
+  </section>
+
   <!-- ── Projects ── -->
   <section id="projects" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Projects</h2>
-    <p class="text-gray-400 mb-12 max-w-xl fade-in">A selection of things I've built — web apps, data tools, and mobile experiences.</p>
+    <p class="text-gray-400 mb-12 max-w-xl fade-in">A selection of things I've built — web apps, data tools, and interactive dashboards.</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- JD-Match -->
       <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col card-glow transition-all duration-300 fade-in">
+        <!-- Screenshot placeholder -->
+        <div class="rounded-xl bg-white/5 border border-white/10 h-40 mb-4 flex items-center justify-center overflow-hidden">
+          <svg class="w-10 h-10 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
+          </svg>
+        </div>
         <div class="flex items-start justify-between mb-3">
           <h3 class="text-xl font-bold text-white">JD-Match</h3>
           <span class="text-xs font-medium text-indigo-400 bg-indigo-400/10 px-2.5 py-1 rounded-full border border-indigo-400/20">Featured</span>
@@ -136,6 +324,12 @@
 
       <!-- Gender Pay Gap Analysis -->
       <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col card-glow transition-all duration-300 fade-in">
+        <!-- Screenshot placeholder -->
+        <div class="rounded-xl bg-white/5 border border-white/10 h-40 mb-4 flex items-center justify-center overflow-hidden">
+          <svg class="w-10 h-10 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
+          </svg>
+        </div>
         <h3 class="text-xl font-bold text-white mb-3">Gender Pay Gap Analysis</h3>
         <p class="text-gray-400 text-sm leading-relaxed mb-5 flex-1">
           Interactive dashboard exploring the UK Gender Pay Gap. Visualizes trends, sector breakdowns, and regional data through dynamic charts and filterable views.
@@ -166,37 +360,56 @@
     </div>
   </section>
 
+  <!-- ── Contact ── -->
+  <section id="contact" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Get in Touch</h2>
+    <p class="text-gray-400 mb-12 max-w-xl fade-in">
+      I'm always open to new opportunities, collaborations, or just a conversation about data and technology.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl fade-in">
+      <!-- Email -->
+      <a href="mailto:lucas.sam93@gmail.com"
+         class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center card-glow transition-all duration-300 hover:border-indigo-400/30 group">
+        <svg class="w-8 h-8 mx-auto mb-3 text-indigo-400 group-hover:text-indigo-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+        </svg>
+        <p class="text-sm font-semibold text-white mb-1">Email</p>
+        <p class="text-xs text-gray-400">lucas.sam93@gmail.com</p>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer"
+         class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center card-glow transition-all duration-300 hover:border-indigo-400/30 group">
+        <svg class="w-8 h-8 mx-auto mb-3 text-indigo-400 group-hover:text-indigo-300 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+        <p class="text-sm font-semibold text-white mb-1">LinkedIn</p>
+        <p class="text-xs text-gray-400">Connect with me</p>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
+         class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 text-center card-glow transition-all duration-300 hover:border-indigo-400/30 group">
+        <svg class="w-8 h-8 mx-auto mb-3 text-indigo-400 group-hover:text-indigo-300 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        <p class="text-sm font-semibold text-white mb-1">GitHub</p>
+        <p class="text-xs text-gray-400">View my repos</p>
+      </a>
+    </div>
+  </section>
+
   <!-- ── Footer ── -->
   <footer class="border-t border-white/5 py-10 px-6">
-    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-gray-500">
-        Built by Lucas Sam
-      </p>
-      <div class="flex items-center gap-5">
-        <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
-           class="text-gray-500 hover:text-white transition-colors" aria-label="GitHub">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer"
-           class="text-gray-500 hover:text-white transition-colors" aria-label="LinkedIn">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="mailto:lucas.sam93@gmail.com"
-           class="text-gray-500 hover:text-white transition-colors" aria-label="Email">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-          </svg>
-        </a>
-      </div>
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-sm text-gray-500">&copy; 2026 Lucas Sam. Built with Tailwind CSS.</p>
     </div>
   </footer>
 
-  <!-- ── Scroll Animation ── -->
+  <!-- ── Scripts ── -->
   <script>
+    // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -204,8 +417,23 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menu-btn');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
   </script>
 </body>
 </html>
