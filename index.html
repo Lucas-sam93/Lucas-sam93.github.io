@@ -82,13 +82,31 @@
       transform: translateY(-2px);
       border-color: rgba(129, 140, 248, 0.3);
     }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .scroll-indicator {
+        animation: none;
+      }
+      .mobile-menu {
+        transition: none;
+      }
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-950 text-white font-sans antialiased">
 
   <!-- ── Navigation ── -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
       <a href="#" class="text-lg font-bold text-white tracking-tight">LS</a>
 
       <!-- Desktop links -->
@@ -125,14 +143,14 @@
       <a href="#projects" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Projects</a>
       <a href="#contact" class="text-2xl text-gray-300 hover:text-white transition-colors mobile-link">Contact</a>
       <a href="https://docs.google.com/document/d/1-Jxxm6Nj6cqZARFNL6yWpzH0cxKBkuVV/edit#heading=h.7a8c466q5za" target="_blank" rel="noopener noreferrer"
-         class="text-xl font-medium text-indigo-400 border border-indigo-400/30 px-6 py-2 rounded-full hover:bg-indigo-400/10 transition-colors">
+         class="text-xl font-medium text-white bg-indigo-500 px-8 py-3 rounded-full hover:bg-indigo-400 transition-colors">
         Resume
       </a>
     </div>
   </nav>
 
   <!-- ── Hero ── -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden">
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
     <!-- Background gradient -->
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(99,102,241,0.15)_0%,_transparent_60%)]"></div>
 
@@ -142,7 +160,7 @@
         <img src="Lucas_Headshot.png" alt="Lucas Sam" class="w-full h-full object-cover" />
       </div>
 
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4">
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mb-4">
         Lucas Sam
       </h1>
       <p class="text-xl sm:text-2xl text-indigo-400 font-semibold mb-6">
@@ -153,21 +171,21 @@
       </p>
 
       <!-- Social Links -->
-      <div class="flex items-center justify-center gap-5 mb-6">
+      <div class="flex items-center justify-center gap-4 mb-6">
         <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
-           class="text-gray-400 hover:text-white transition-colors p-2" aria-label="GitHub">
+           class="text-gray-400 hover:text-white transition-colors p-3" aria-label="GitHub">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
           </svg>
         </a>
         <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer"
-           class="text-gray-400 hover:text-white transition-colors p-2" aria-label="LinkedIn">
+           class="text-gray-400 hover:text-white transition-colors p-3" aria-label="LinkedIn">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
         <a href="mailto:lucas.sam93@gmail.com"
-           class="text-gray-400 hover:text-white transition-colors p-2" aria-label="Email">
+           class="text-gray-400 hover:text-white transition-colors p-3" aria-label="Email">
           <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
           </svg>
@@ -195,7 +213,7 @@
   </section>
 
   <!-- ── About Me ── -->
-  <section id="about" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+  <section id="about" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">About Me</h2>
     <p class="text-gray-400 mb-8 max-w-xl fade-in">A bit about my background and what drives me.</p>
 
@@ -218,7 +236,7 @@
   </section>
 
   <!-- ── Experience ── -->
-  <section id="experience" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+  <section id="experience" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Experience</h2>
     <p class="text-gray-400 mb-12 max-w-xl fade-in">Where I've worked and what I've contributed.</p>
 
@@ -235,7 +253,7 @@
             <span class="text-sm text-indigo-400 font-medium">Jan 2022 — Present</span>
           </div>
           <p class="text-sm text-gray-400 mb-3">Self-Employed, Singapore</p>
-          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-inside">
+          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-outside ml-4">
             <li>Analysed longitudinal physiological data for 70+ clients across 4+ years, identifying trends and optimizing training interventions.</li>
             <li>Developed data-driven assessment frameworks to monitor client progress, detecting performance plateaus 3-4 weeks earlier than traditional methods.</li>
             <li>Synthesized complex nutritional research and client dietary data into actionable meal plans, improving client adherence rates by 35%.</li>
@@ -253,7 +271,7 @@
             <span class="text-sm text-indigo-400 font-medium">Jan 2020 — Dec 2021</span>
           </div>
           <p class="text-sm text-gray-400 mb-3">PURE Fitness, Singapore</p>
-          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-inside">
+          <ul class="text-sm text-gray-300 leading-relaxed space-y-1.5 list-disc list-outside ml-4">
             <li>Designed measurable training and nutrition protocols with defined KPIs, conducting bi-weekly assessments to track progress against baseline metrics.</li>
             <li>Leveraged performance data and visual reporting to demonstrate ROI to prospective clients, converting 60% of consultations into 12+ week training packages.</li>
           </ul>
@@ -263,7 +281,7 @@
   </section>
 
   <!-- ── Skills ── -->
-  <section id="skills" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+  <section id="skills" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Skills</h2>
     <p class="text-gray-400 mb-12 max-w-xl fade-in">Technologies and tools I work with regularly.</p>
 
@@ -277,7 +295,7 @@
   </section>
 
   <!-- ── Projects ── -->
-  <section id="projects" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+  <section id="projects" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Projects</h2>
     <p class="text-gray-400 mb-12 max-w-xl fade-in">A selection of things I've built — web apps, data tools, and interactive dashboards.</p>
 
@@ -286,7 +304,7 @@
       <!-- JD-Match -->
       <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col card-glow transition-all duration-300 fade-in">
         <!-- Screenshot -->
-        <div class="rounded-xl border border-white/10 h-40 mb-4 overflow-hidden">
+        <div class="rounded-xl border border-white/10 h-32 sm:h-40 mb-4 overflow-hidden">
           <img src="jd-match-screenshot.png" alt="JD-Match app interface" class="w-full h-full object-cover object-top" />
         </div>
         <div class="flex items-start justify-between mb-3">
@@ -302,16 +320,16 @@
           <span class="text-xs font-medium text-gray-300 bg-gray-800 px-2.5 py-1 rounded-full">Gemini AI</span>
           <span class="text-xs font-medium text-gray-300 bg-gray-800 px-2.5 py-1 rounded-full">Node.js</span>
         </div>
-        <div class="flex items-center gap-4 pt-2 border-t border-white/5">
+        <div class="flex items-center gap-2 pt-2 border-t border-white/5">
           <a href="https://jd-match.vercel.app" target="_blank" rel="noopener noreferrer"
-             class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+             class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
             </svg>
             Live Demo
           </a>
           <a href="https://github.com/Lucas-sam93/JD-Match" target="_blank" rel="noopener noreferrer"
-             class="text-sm font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
+             class="text-sm font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 py-2 px-3 rounded-lg">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
@@ -323,7 +341,7 @@
       <!-- Gender Pay Gap Analysis -->
       <div class="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 flex flex-col card-glow transition-all duration-300 fade-in">
         <!-- Screenshot -->
-        <div class="rounded-xl border border-white/10 h-40 mb-4 overflow-hidden">
+        <div class="rounded-xl border border-white/10 h-32 sm:h-40 mb-4 overflow-hidden">
           <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap Analysis dashboard" class="w-full h-full object-cover object-top" />
         </div>
         <h3 class="text-xl font-bold text-white mb-3">Gender Pay Gap Analysis</h3>
@@ -335,16 +353,16 @@
           <span class="text-xs font-medium text-gray-300 bg-gray-800 px-2.5 py-1 rounded-full">Plotly</span>
           <span class="text-xs font-medium text-gray-300 bg-gray-800 px-2.5 py-1 rounded-full">Pandas</span>
         </div>
-        <div class="flex items-center gap-4 pt-2 border-t border-white/5">
+        <div class="flex items-center gap-2 pt-2 border-t border-white/5">
           <a href="https://lucas-sam93.github.io/gender-pay-gap-analysis/" target="_blank" rel="noopener noreferrer"
-             class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+             class="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
             </svg>
             Live Dashboard
           </a>
           <a href="https://github.com/Lucas-sam93/gender-pay-gap-analysis" target="_blank" rel="noopener noreferrer"
-             class="text-sm font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-1.5">
+             class="text-sm font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-1.5 py-2 px-3 rounded-lg">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
@@ -357,7 +375,7 @@
   </section>
 
   <!-- ── Contact ── -->
-  <section id="contact" class="max-w-5xl mx-auto px-6 py-20 sm:py-28">
+  <section id="contact" class="max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 fade-in">Get in Touch</h2>
     <p class="text-gray-400 mb-12 max-w-xl fade-in">
       I'm always open to new opportunities, collaborations, or just a conversation about data and technology.
@@ -397,7 +415,7 @@
   </section>
 
   <!-- ── Footer ── -->
-  <footer class="border-t border-white/5 py-10 px-6">
+  <footer class="border-t border-white/5 py-10 px-4 sm:px-6">
     <div class="max-w-5xl mx-auto text-center">
       <p class="text-sm text-gray-500">&copy; 2026 Lucas Sam. Built with Tailwind CSS.</p>
     </div>
@@ -425,10 +443,12 @@
     const menuBtn = document.getElementById('menu-btn');
     const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-    menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
+    menuBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
     document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      link.addEventListener('click', closeMenu);
     });
   </script>
 </body>
