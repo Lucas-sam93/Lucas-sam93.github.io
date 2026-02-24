@@ -15,6 +15,13 @@ Built with React, Tailwind CSS, Node.js, and the Gemini API.
 
 [Live app](https://jd-match.vercel.app) · [Source code](https://github.com/Lucas-sam93/JD-Match)
 
+### Singapore Parliamentary Elections 1955–2025
+A multi-dashboard Tableau story examining the gap between votes and seats across 70 years of Singapore general elections. Explores how PAP's 65.6% vote share translates to 90.6% of parliamentary seats, and tracks the opposition's decades-long rise.
+
+Built with Tableau.
+
+[Live dashboard](https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox)
+
 ### Gender Pay Gap Analysis
 An interactive dashboard exploring the UK Gender Pay Gap using publicly available government data. It visualises trends over time, breaks down disparities by sector and region, and lets users filter the data to surface patterns that matter to them.
 
