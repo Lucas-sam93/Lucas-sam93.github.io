@@ -63,22 +63,6 @@
     .mobile-menu.open {
       transform: translateX(0);
     }
-    /* Timeline */
-    .timeline-line {
-      position: absolute;
-      left: 7px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, #e5e7eb, transparent);
-    }
-    /* Skill badge hover */
-    .skill-badge {
-      transition: background-color 0.2s ease;
-    }
-    .skill-badge:hover {
-      background-color: #e5e7eb;
-    }
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .fade-in {
@@ -108,11 +92,8 @@
 
       <!-- Desktop links -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#about" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">About</a>
-        <a href="#experience" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Experience</a>
-        <a href="#education" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Education</a>
-        <a href="#skills" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Skills</a>
         <a href="#projects" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Projects</a>
+        <a href="#about" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">About</a>
         <a href="#contact" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Contact</a>
         <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer"
            class="text-sm font-medium text-gray-900 border border-gray-300 px-4 py-1.5 rounded-full hover:bg-gray-50 transition-colors">
@@ -135,11 +116,8 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
-      <a href="#about" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">About</a>
-      <a href="#experience" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Experience</a>
-      <a href="#education" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Education</a>
-      <a href="#skills" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Skills</a>
       <a href="#projects" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Projects</a>
+      <a href="#about" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">About</a>
       <a href="#contact" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Contact</a>
       <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer"
          class="text-xl font-medium text-white bg-gray-900 px-8 py-3 rounded-full hover:bg-gray-800 transition-colors">
@@ -163,7 +141,7 @@
         Data Analyst
       </p>
       <p class="text-gray-500 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-        Building tools that solve real problems — from AI-powered resume optimization to interactive data dashboards.
+        Data analyst who enjoys turning raw data into clear, actionable insights. I work across the full pipeline — from cleaning and exploring datasets to building dashboards and web tools that make the results accessible.
       </p>
 
       <!-- Social Links -->
@@ -200,138 +178,11 @@
 
     <!-- Scroll indicator -->
     <div class="absolute bottom-10 scroll-indicator">
-      <a href="#about" class="text-gray-300 hover:text-gray-500 transition-colors" aria-label="Scroll to about">
+      <a href="#projects" class="text-gray-300 hover:text-gray-500 transition-colors" aria-label="Scroll to projects">
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
         </svg>
       </a>
-    </div>
-  </section>
-
-  <!-- ── About Me ── -->
-  <section id="about" class="bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-      <h2 class="text-3xl font-semibold tracking-tight mb-12 fade-in">About Me</h2>
-
-      <div class="max-w-3xl space-y-5 fade-in">
-        <p class="text-gray-600 leading-relaxed">
-          I started my career in fitness, spending 4+ years as a personal trainer where I tracked client metrics,
-          built data-driven training programs, and discovered that the part I enjoyed most was the analysis itself
-          — identifying trends, measuring outcomes, and translating numbers into actionable plans.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          That realization led me to pursue data analytics formally. I completed the Google Data Analytics
-          Professional Certificate and General Assembly's Data Analytics bootcamp, where I deepened my skills in
-          SQL, Tableau, and exploratory data analysis. I then started building tools to put those skills into
-          practice — from an AI-powered resume optimizer to interactive dashboards exploring real-world datasets.
-        </p>
-        <p class="text-gray-600 leading-relaxed">
-          I'm now looking for my first data analyst role where I can combine my analytical foundation,
-          communication skills from working with non-technical clients, and a builder's mindset for creating
-          tools that make data accessible.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Experience ── -->
-  <section id="experience" class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-    <h2 class="text-3xl font-semibold tracking-tight mb-4 fade-in">Experience</h2>
-    <p class="text-gray-500 mb-12 fade-in">Where I've worked and what I've contributed.</p>
-
-    <div class="relative pl-8 sm:pl-10 space-y-8">
-      <!-- Timeline line -->
-      <div class="timeline-line"></div>
-
-      <!-- Experience item 1 -->
-      <div class="relative fade-in">
-        <div class="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full bg-gray-900 border-4 border-white"></div>
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 class="text-lg font-semibold text-gray-900">Freelance Personal Trainer</h3>
-            <span class="text-sm text-gray-500 font-medium">Jan 2022 — Present</span>
-          </div>
-          <p class="text-sm text-gray-500 mb-3">Self-Employed, Singapore</p>
-          <ul class="text-sm text-gray-600 leading-relaxed space-y-1.5 list-disc list-outside ml-4">
-            <li>Analysed longitudinal physiological data for 70+ clients across 4+ years, identifying trends and optimizing training interventions.</li>
-            <li>Developed data-driven assessment frameworks to monitor client progress, detecting performance plateaus 3-4 weeks earlier than traditional methods.</li>
-            <li>Synthesized complex nutritional research and client dietary data into actionable meal plans, improving client adherence rates by 35%.</li>
-            <li>Translated scientific literature and statistical findings into evidence-based recommendations for non-technical clients, maintaining 92% client retention rate.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Experience item 2 -->
-      <div class="relative fade-in">
-        <div class="absolute -left-8 sm:-left-10 top-1.5 w-4 h-4 rounded-full bg-gray-400 border-4 border-white"></div>
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-            <h3 class="text-lg font-semibold text-gray-900">Personal Trainer</h3>
-            <span class="text-sm text-gray-500 font-medium">Jan 2020 — Dec 2021</span>
-          </div>
-          <p class="text-sm text-gray-500 mb-3">PURE Fitness, Singapore</p>
-          <ul class="text-sm text-gray-600 leading-relaxed space-y-1.5 list-disc list-outside ml-4">
-            <li>Designed measurable training and nutrition protocols with defined KPIs, conducting bi-weekly assessments to track progress against baseline metrics.</li>
-            <li>Leveraged performance data and visual reporting to demonstrate ROI to prospective clients, converting 60% of consultations into 12+ week training packages.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Education & Certifications ── -->
-  <section id="education" class="bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-      <h2 class="text-3xl font-semibold tracking-tight mb-4 fade-in">Education & Certifications</h2>
-      <p class="text-gray-500 mb-12 fade-in">Formal training that supports my transition into data analytics.</p>
-
-      <div class="space-y-4">
-        <!-- General Assembly -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow fade-in">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-            <h3 class="text-lg font-semibold text-gray-900">Data Analytics Bootcamp</h3>
-            <span class="text-sm text-gray-500 font-medium">2026</span>
-          </div>
-          <p class="text-sm text-gray-500">General Assembly</p>
-        </div>
-
-        <!-- Google Certificate -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow fade-in">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-            <h3 class="text-lg font-semibold text-gray-900">Google Data Analytics Professional Certificate</h3>
-            <span class="text-sm text-gray-500 font-medium">2025</span>
-          </div>
-          <p class="text-sm text-gray-500">Google (Coursera)</p>
-        </div>
-
-        <!-- University -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow fade-in">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-            <h3 class="text-lg font-semibold text-gray-900">B.A. Psychology</h3>
-            <span class="text-sm text-gray-500 font-medium">2016 — 2019</span>
-          </div>
-          <p class="text-sm text-gray-500">University at Buffalo, SUNY</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Skills ── -->
-  <section id="skills" class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-    <h2 class="text-3xl font-semibold tracking-tight mb-4 fade-in">Skills</h2>
-    <p class="text-gray-500 mb-12 fade-in">Technologies and tools I work with regularly.</p>
-
-    <div class="flex flex-wrap gap-3 fade-in">
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">SQL</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Tableau</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Excel</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Data Visualization</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Data Storytelling</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Data Cleaning</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">EDA</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Statistics</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Git</span>
-      <span class="skill-badge text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">Prompt Engineering</span>
     </div>
   </section>
 
@@ -413,7 +264,55 @@
           </div>
         </div>
 
+        <!-- Singapore Parliamentary Elections -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md transition-shadow fade-in">
+          <!-- Screenshot -->
+          <div class="rounded-xl bg-gray-100 h-32 sm:h-40 mb-4 overflow-hidden">
+            <img src="singapore-elections-screenshot.png" alt="Singapore Parliamentary Elections dashboard" class="w-full h-full object-cover object-top" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">SG Elections 1955–2025</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-5 flex-1">
+            Multi-dashboard Tableau story examining the gap between votes and seats across 70 years of Singapore general elections. Explores how PAP's 65.6% vote share translates to 90.6% of parliamentary seats.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Tableau</span>
+          </div>
+          <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
+            <a href="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox" target="_blank" rel="noopener noreferrer"
+               class="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+              </svg>
+              Live Dashboard
+            </a>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <!-- ── About Me ── -->
+  <section id="about" class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
+    <h2 class="text-3xl font-semibold tracking-tight mb-12 fade-in">About Me</h2>
+
+    <div class="max-w-3xl space-y-5 fade-in">
+      <p class="text-gray-600 leading-relaxed">
+        I started my career in fitness, spending 4+ years as a personal trainer where I tracked client metrics,
+        built data-driven training programs, and discovered that the part I enjoyed most was the analysis itself
+        — identifying trends, measuring outcomes, and translating numbers into actionable plans.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        That realization led me to pursue data analytics formally. I completed the Google Data Analytics
+        Professional Certificate and General Assembly's Data Analytics bootcamp, where I deepened my skills in
+        SQL, Tableau, and exploratory data analysis. I then started building tools to put those skills into
+        practice — from an AI-powered resume optimizer to interactive dashboards exploring real-world datasets.
+      </p>
+      <p class="text-gray-600 leading-relaxed">
+        I'm now looking for my first data analyst role where I can combine my analytical foundation,
+        communication skills from working with non-technical clients, and a builder's mindset for creating
+        tools that make data accessible.
+      </p>
     </div>
   </section>
 
