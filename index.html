@@ -1336,7 +1336,7 @@
       data-title="Singapore Parliamentary Elections 1955–2025"
       data-subtitle="70 Years of Votes vs Seats"
       data-label="Data Visualization"
-      data-desc="Singapore's ruling party won 90.6% of seats with just 65.6% of the vote. Built a multi-dashboard Tableau story to quantify this votes-to-seats paradox across 70 years of elections and track the opposition's decades-long rise from 0 to 10 seats."
+      data-desc="The Workers' Party wins more than half the votes in every seat they contest — yet holds just 9.3% of parliament. Built a 6-dashboard Tableau story tracking 70 years of elections to show why the quiet revolution is already happening, hidden by a structural bottleneck."
       data-tags="Tableau,Data Visualization,Data Storytelling"
       data-live="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox"
       data-source="https://github.com/Lucas-sam93/SG-Elections-Tableau">
@@ -1348,7 +1348,7 @@
           <span class="project-number">03</span>
           <p class="project-label">Data Visualization</p>
           <h3 class="project-name">SG Elections 1955–2025</h3>
-          <p class="project-desc">How does a party win 90.6% of seats with just 65.6% of votes? Visualized 70 years of Singapore's votes-to-seats paradox across 6 interactive dashboards.</p>
+          <p class="project-desc">The Workers' Party averages 50.5% of every vote cast against them — yet holds just 9.3% of seats. Visualized 70 years of data to reveal why Singapore's quiet revolution is hidden in plain sight.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1866,20 +1866,22 @@
         ],
       },
       'Singapore Parliamentary Elections 1955\u20132025': {
-        overview: 'Interactive Tableau dashboard story visualizing 70 years of Singapore parliamentary elections \u2014 from the first Legislative Assembly in 1955 through GE2025. A multi-dashboard exploration that quantifies the votes-to-seats paradox and tracks the opposition\'s decades-long rise.',
-        problem: 'Singapore\'s first-past-the-post electoral system creates a dramatic disconnect between popular vote share and parliamentary seat share. The ruling PAP won 90.6% of seats with just 65.6% of the vote in recent elections \u2014 but this paradox is rarely quantified or visualized across the full 70-year historical record in an accessible, interactive format.',
-        solution: 'Built a multi-dashboard Tableau story that lets users explore the votes-to-seats relationship, constituency-level results, and party performance trends across every general election from 1955 to 2025. Each dashboard is a chapter in a data-driven narrative \u2014 The Paradox, The Rise, The Verdict.',
+        overview: 'A 6-dashboard Tableau story arguing that Singapore\'s Workers\' Party is already winning where it competes \u2014 and the gap between votes and seats is a structural illusion, not a voter mandate. Titled "The Quiet Revolution," the narrative tracks 70 years of constituency-level data to reveal a methodical, decades-long accumulation of electoral power that the seat count doesn\'t reflect.',
+        problem: 'Singapore\'s 2025 election produced a jarring result: 65.6% of votes gave PAP 90.6% of seats, while WP\'s 14.9% vote share translated to just 9.3%. Most coverage frames this as opposition weakness \u2014 but what does the constituency-level data actually say about where WP competes? And if WP is winning the votes-per-contest battle, what\'s really stopping them from scaling?',
+        solution: 'Built a 6-chapter Tableau story that moves from the macro paradox to constituency-level evidence. The narrative follows WP\'s 40-year trajectory \u2014 from Hougang\'s institutional resilience to Potong Pasir\'s cautionary collapse \u2014 to argue that the barrier isn\'t votes, it\'s the GRC system\'s requirement to field teams of 3\u20136 credible candidates per contest. The final chapters propose a data-backed consolidation strategy and make the case for opposition unity.',
         findings: [
-          'PAP won 90.6% of seats with 65.6% of votes \u2014 a 25 percentage point paradox between vote share and seat share',
-          'Opposition rose from 0 seats during the 1968\u20131981 period to 10 seats in GE2025',
-          'PAP vote share declined from 87% (1968) to 65.6% (2025), but seat share did not decline proportionally',
-          'GRC (Group Representation Constituency) system and constituency boundary changes significantly amplify the votes-to-seats paradox',
+          'WP averages 50.5% vote share in every seat they contest (2025) \u2014 they\'re winning the votes-per-contest battle already',
+          'PAP\'s vote share declined in 6 of 9 elections since 1984, dropping from 75% (2001) to 65.6% (2025) \u2014 a sustained trend, not protest voting',
+          'Where WP built institutions (Hougang, Aljunied), seats survived 20+ years of leadership changes. Where they relied on one leader (Potong Pasir), the seat collapsed when Chiam See Tong retired \u2014 PAP vote jumped from 50% to 66%',
+          'The GRC system is the real barrier \u2014 not voter support. Fielding teams of 3\u20136 credible candidates per GRC is an organizational pipeline problem, not an electoral one',
+          'Strategic recommendation: Consolidate 3 strongholds (Hougang, Aljunied, Sengkang) to 70%+ vote share \u2014 the threshold above which PAP recovery becomes historically unlikely. Sengkang is vulnerable at just 52.1% (2020)',
+          'Combined opposition parties won 47.8% of total votes vs PAP\'s 52.2% \u2014 multi-corner fights hand PAP seats the data says they shouldn\'t win. Non-competition agreements could be a force multiplier',
         ],
         methodology: [
-          'Data collection: Manual compilation from official Singapore Elections Department records spanning 1955\u20132025',
-          'Data cleaning: Standardized party names, constituency boundaries, and vote tallies across 70 years of changing electoral formats',
-          'Visualization: Tableau Public with multi-dashboard story format \u2014 6+ dashboards covering the paradox, party trends, and historical context',
-          'Narrative structure: Each dashboard functions as a chapter \u2014 building from the macro paradox down to constituency-level details',
+          'Data collection: Manual compilation from official Singapore Elections Department records \u2014 32 constituencies across 9 general elections (1955\u20132025)',
+          'Analysis: Constituency-level vote share tracking, leadership transition impact analysis, vote-to-seat disproportionality calculation',
+          'Visualization: 6-dashboard Tableau Public story \u2014 each dashboard is a chapter building from The Paradox \u2192 The Evidence \u2192 The Verdict',
+          'Narrative approach: Data journalism framing \u2014 leading with a contrarian thesis (\'WP is already winning\') and letting the constituency data prove it',
         ],
       },
       'Gender Pay Gap Analysis': {

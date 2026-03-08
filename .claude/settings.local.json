@@ -7,7 +7,10 @@
       "Bash(pushd \"C:/Users/lucas/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.0.1/src/ui-ux-pro-max/scripts\")",
       "Bash(\"/c/Users/lucas/AppData/Local/Programs/pgAdmin 4/python/python.exe\" search.py \"data analyst portfolio cinematic minimal editorial\" --design-system -p \"Lucas Sam Portfolio\")",
       "Bash(popd)",
-      "Bash(\"/c/Users/lucas/AppData/Local/Programs/pgAdmin 4/python/python.exe\" -c \"import sys; sys.path.insert\\(0, ''.''\\); from core import CSV_CONFIG; print\\(''OK''\\)\")"
+      "Bash(\"/c/Users/lucas/AppData/Local/Programs/pgAdmin 4/python/python.exe\" -c \"import sys; sys.path.insert\\(0, ''.''\\); from core import CSV_CONFIG; print\\(''OK''\\)\")",
+      "WebFetch(domain:public.tableau.com)",
+      "Bash(unzip -l \"SG Elections.pptx\")",
+      "Bash(unzip -p \"SG Elections.pptx\" ppt/slides/slide1.xml)"
     ]
   }
 }
