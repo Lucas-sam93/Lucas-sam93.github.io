@@ -499,8 +499,8 @@
     @media (max-width: 768px) {
       .project-showcase {
         height: auto;
-        min-height: 100vh;
-        padding: 4rem 0;
+        min-height: auto;
+        padding: 3rem 0;
       }
       .project-showcase-inner {
         flex-direction: column !important;
@@ -511,6 +511,10 @@
         flex: none;
         width: 100%;
         height: 40vh;
+      }
+      .project-text {
+        padding-right: 0;
+        padding-left: 0;
       }
     }
 
@@ -894,7 +898,7 @@
     }
 
     @media (max-width: 768px) {
-      .nav-status { display: none; }
+      .nav .nav-status { display: none; }
     }
 
     /* ── Footer CTA ── */
@@ -944,7 +948,7 @@
       margin-bottom: 4rem;
     }
 
-    .footer-social {
+    .footer-social-link {
       width: 40px;
       height: 40px;
       display: flex;
@@ -954,11 +958,11 @@
       transition: color 0.3s ease;
     }
 
-    .footer-social:hover {
+    .footer-social-link:hover {
       color: var(--text-primary);
     }
 
-    .footer-social svg {
+    .footer-social-link svg {
       width: 20px;
       height: 20px;
     }
@@ -974,13 +978,126 @@
       transition: border-color var(--transition-theme);
     }
 
-    .footer-bottom p {
+    .footer-bottom span {
       font-family: 'Roboto Mono', monospace;
       font-size: 0.65rem;
       color: var(--text-muted);
       font-weight: 400;
       letter-spacing: 0.05em;
       transition: color var(--transition-theme);
+    }
+
+    .footer-bottom .nav-status {
+      color: var(--text-muted);
+    }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      /* Sections */
+      .section {
+        padding: 5rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+      }
+
+      /* Project showcase — name scales down */
+      .project-name {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+      }
+
+      /* Remove image filters (no hover on mobile) */
+      .project-image-wrap img {
+        filter: none;
+      }
+
+      /* Modal — tighter typography */
+      .modal-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+
+      .case-study-heading {
+        font-size: 0.85rem;
+      }
+
+      .case-study-text,
+      .case-study-list li {
+        font-size: 0.9rem;
+      }
+
+      /* Footer CTA — compact */
+      .footer-cta {
+        padding: 6rem 1.5rem 2rem;
+      }
+
+      .footer-cta-heading {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .footer-cta-email {
+        font-size: 0.75rem;
+        padding: 0.6rem 1.5rem;
+      }
+
+      .footer-socials {
+        margin-bottom: 2.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem 0;
+      }
+
+      /* Cursor — hide on mobile */
+      .cursor {
+        display: none;
+      }
+
+      body, a, button {
+        cursor: auto !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-showcase {
+        padding: 2rem 0;
+      }
+
+      .project-showcase-inner {
+        padding: 0 1rem !important;
+        gap: 1.5rem;
+      }
+
+      .project-image-wrap {
+        height: 30vh;
+      }
+
+      .footer-cta {
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-bottom span {
+        font-size: 0.6rem;
+      }
+    }
+
+    /* Touch device — hide custom cursor */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor {
+        display: none !important;
+      }
+
+      body, a, button {
+        cursor: auto !important;
+      }
+
+      /* Remove image filters since no hover on touch */
+      .project-image-wrap img {
+        filter: none;
+      }
     }
 
     /* ── Reduced Motion ── */
