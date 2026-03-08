@@ -17,7 +17,7 @@
   <link rel="canonical" href="https://lucas-sam93.github.io" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Koulen&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ── Theme Variables ── */
@@ -332,6 +332,7 @@
       width: 100%;
       height: 100%;
       z-index: 0;
+      pointer-events: none;
     }
 
     .hero-content {
@@ -342,10 +343,11 @@
     }
 
     .hero-greeting {
-      font-size: 1rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.85rem;
       font-weight: 400;
       color: var(--text-muted);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
       opacity: 0;
@@ -359,10 +361,12 @@
     }
 
     .hero-name {
+      font-family: 'Koulen', sans-serif;
       font-size: clamp(3.5rem, 10vw, 7rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      font-weight: 400;
+      letter-spacing: -0.02em;
       line-height: 0.95;
+      text-transform: uppercase;
       margin-bottom: 1.5rem;
       opacity: 0;
       filter: blur(20px);
@@ -494,9 +498,11 @@
     }
 
     .section-title {
+      font-family: 'Koulen', sans-serif;
       font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
       margin-bottom: 1rem;
     }
 
@@ -521,171 +527,328 @@
 
     /* ── Projects Section ── */
     .projects-section {
-      background: var(--bg-secondary);
       transition: background var(--transition-theme);
-      padding: 8rem 0 4rem;
-      overflow: hidden;
+      padding: 6rem 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .projects-header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem 3rem;
+      margin-bottom: 3.5rem;
     }
 
-    /* Horizontal scroll track */
-    .projects-track {
-      display: flex;
-      gap: 2rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      padding: 0 calc((100vw - 65vw) / 2);
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .projects-track::-webkit-scrollbar { display: none; }
-
-    /* Horizontal card */
-    .hcard {
-      flex: 0 0 65vw;
-      min-width: 65vw;
-      max-width: 900px;
-      scroll-snap-align: center;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 1rem;
-      overflow: hidden;
+    /* Vertical grid */
+    .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      transition: border-color 0.3s ease, box-shadow 0.4s ease, background var(--transition-theme);
+      gap: 1.5rem;
     }
 
-    .hcard:hover {
+    /* Project card */
+    .pcard {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), background var(--transition-theme);
+    }
+
+    .pcard:hover {
       border-color: var(--border-hover);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
     }
 
-    .hcard-img {
-      height: 100%;
-      min-height: 340px;
+    .pcard-img {
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: var(--bg-secondary);
-      position: relative;
     }
 
-    .hcard-img img {
+    .pcard-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top;
-      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
-    .hcard:hover .hcard-img img {
-      transform: scale(1.05);
+    .pcard:hover .pcard-img img {
+      transform: scale(1.04);
     }
 
-    .hcard-content {
-      padding: 2rem 2.25rem;
+    .pcard-info {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
+
+    .pcard-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      transition: color var(--transition-theme);
+    }
+
+    .pcard-title {
+      font-family: 'Koulen', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+
+    .pcard-sub {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      transition: color var(--transition-theme);
+    }
+
+    .pcard-badges {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Featured card spans full width */
+    .pcard.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .pcard.featured .pcard-img {
+      aspect-ratio: auto;
+      min-height: 360px;
+    }
+
+    .pcard.featured .pcard-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 2rem 2.5rem;
     }
 
-    /* Projects navigation */
-    .projects-nav {
+    .pcard.featured .pcard-title {
+      font-size: 1.8rem;
+    }
+
+    .pcard.featured .pcard-sub {
+      font-size: 0.85rem;
+      max-width: 400px;
+    }
+
+    /* Mobile: single column */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .pcard.featured {
+        grid-template-columns: 1fr;
+      }
+      .pcard.featured .pcard-img {
+        min-height: 220px;
+        aspect-ratio: 16 / 10;
+      }
+      .pcard.featured .pcard-info {
+        padding: 1.25rem 1.5rem 1.5rem;
+      }
+      .pcard.featured .pcard-title {
+        font-size: 1.4rem;
+      }
+    }
+
+    /* ── Project Modal ── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .project-modal {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 720px;
+      height: 100vh;
+      z-index: 201;
+      background: var(--bg-primary);
+      border-left: 1px solid var(--border-color);
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), background var(--transition-theme);
+    }
+
+    .project-modal.open {
+      transform: translateX(0);
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 0;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 2.5rem 2rem 0;
+      justify-content: flex-end;
+      padding: 1.5rem 2rem;
+      z-index: 10;
+      background: linear-gradient(to bottom, var(--bg-primary) 60%, transparent);
     }
 
-    .projects-arrow {
+    .modal-close-btn {
       width: 44px;
       height: 44px;
       border-radius: 50%;
       border: 1px solid var(--border-color);
-      background: transparent;
+      background: var(--bg-primary);
       color: var(--text-secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
       cursor: none;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
-    .projects-arrow:hover {
+    .modal-close-btn:hover {
       border-color: var(--text-secondary);
       color: var(--text-primary);
+    }
+
+    .modal-close-btn svg { width: 20px; height: 20px; }
+
+    .modal-hero-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-body {
+      padding: 2.5rem 2rem 4rem;
+    }
+
+    .modal-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-title {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-section-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .modal-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .modal-link:hover {
+      border-color: var(--text-secondary);
       background: rgba(var(--particle-color), 0.05);
     }
 
-    .projects-arrow:disabled {
-      opacity: 0.25;
-      pointer-events: none;
-    }
+    .modal-link svg { width: 16px; height: 16px; }
 
-    .projects-arrow svg { width: 18px; height: 18px; }
-
-    .projects-dots {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      border: none;
-      background: var(--text-muted);
-      opacity: 0.3;
-      transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
-      cursor: none;
-      padding: 0;
-    }
-
-    .dot.active {
-      opacity: 1;
-      transform: scale(1.3);
-      background: var(--text-primary);
-    }
-
-    /* Mobile: stack vertically */
     @media (max-width: 768px) {
-      .projects-track {
-        flex-direction: column;
-        overflow-x: visible;
-        scroll-snap-type: none;
-        padding: 0 1.25rem;
-        gap: 1.5rem;
-      }
-
-      .hcard {
-        flex: none;
-        min-width: 0;
-        width: 100%;
+      .project-modal {
         max-width: 100%;
-        grid-template-columns: 1fr;
       }
-
-      .hcard-img { min-height: 200px; }
-      .hcard-content { padding: 1.5rem; }
-
-      .projects-nav { display: none; }
+      .modal-body {
+        padding: 2rem 1.5rem 3rem;
+      }
     }
 
     /* Shared card elements */
     .badge {
       display: inline-flex;
-      font-size: 0.65rem;
-      font-weight: 600;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
       padding: 0.3rem 0.65rem;
       border-radius: 100px;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
@@ -701,85 +864,16 @@
       color: var(--badge-capstone-text);
     }
 
-    .card-title {
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.25rem;
-    }
-
-    .card-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-      transition: color var(--transition-theme);
-    }
-
-    .card-desc {
-      font-size: 0.85rem;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
-      flex: 1;
-      transition: color var(--transition-theme);
-    }
-
-    .card-detail {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-      transition: color var(--transition-theme);
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.25rem;
-    }
-
     .tag {
+      font-family: 'Roboto Mono', monospace;
       font-size: 0.7rem;
-      font-weight: 500;
+      font-weight: 400;
       color: var(--tag-text);
       background: var(--tag-bg);
       padding: 0.3rem 0.65rem;
       border-radius: 100px;
       transition: background var(--transition-theme), color var(--transition-theme);
     }
-
-    .card-links {
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      padding: 0.4rem 0.75rem;
-      border-radius: 0.5rem;
-      transition: color 0.3s ease, background 0.3s ease;
-    }
-
-    .card-link:hover {
-      color: var(--text-primary);
-      background: rgba(var(--particle-color), 0.06);
-    }
-
-    .card-link.primary { color: var(--text-primary); }
-
-    .card-link svg { width: 14px; height: 14px; }
 
     /* ── About Section ── */
     .about-content {
@@ -978,147 +1072,117 @@
       <p class="section-subtitle reveal">A selection of things I've built — web apps, data tools, and interactive dashboards.</p>
     </div>
 
-    <!-- Horizontal scroll track -->
-    <div class="projects-track" id="projects-track">
+    <div class="projects-grid">
 
-      <!-- 1. Heartbeat or Noise (Capstone) -->
-      <div class="hcard" data-cursor-hover>
-        <div class="hcard-img">
-          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization from Heartbeat or Noise capstone project" />
+      <!-- 1. Heartbeat or Noise (Featured) -->
+      <div class="pcard featured reveal" data-cursor-hover
+        data-project="heartbeat"
+        data-img="capstone-ecg-screenshot.png"
+        data-title="Heartbeat or Noise?"
+        data-subtitle="Evaluating Consumer Wearables as Cardiac Screening Proxies"
+        data-label="Capstone · In Progress"
+        data-desc="Cardiovascular disease causes 30.5% of all deaths in Singapore — yet 49% of residents haven't had a health checkup in the past year. Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a low-barrier screening proxy."
+        data-tags="Python,scikit-learn,Pandas,WFDB,Jupyter"
+        data-source="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise">
+        <div class="pcard-img">
+          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" />
         </div>
-        <div class="hcard-content">
-          <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+        <div class="pcard-info">
+          <div class="pcard-badges">
             <span class="badge badge-in-progress">In Progress</span>
             <span class="badge badge-capstone">Capstone</span>
           </div>
-          <h3 class="card-title">Heartbeat or Noise?</h3>
-          <p class="card-subtitle">Evaluating Consumer Wearables as Cardiac Screening Proxies</p>
-          <p class="card-desc">
-            Cardiovascular disease causes 30.5% of all deaths in Singapore — yet 49% of residents haven't had a health checkup in the past year. Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a low-barrier screening proxy.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">WFDB</span>
-            <span class="tag">Jupyter</span>
-          </div>
-          <div class="card-links">
-            <a href="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise" target="_blank" rel="noopener noreferrer" class="card-link" data-cursor-hover>
-              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source
-            </a>
-          </div>
+          <p class="pcard-label">Machine Learning · Healthcare</p>
+          <h3 class="pcard-title">Heartbeat or Noise?</h3>
+          <p class="pcard-sub">Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a cardiac screening proxy.</p>
         </div>
       </div>
 
       <!-- 2. JD-Match -->
-      <div class="hcard" data-cursor-hover>
-        <div class="hcard-img">
+      <div class="pcard reveal" data-cursor-hover
+        data-project="jdmatch"
+        data-img="jd-match-screenshot.png"
+        data-title="JD-Match"
+        data-subtitle="AI Resume-to-Job Alignment Tool"
+        data-label="Web App · AI"
+        data-desc="Most job seekers don't know why their resumes get rejected by ATS filters. Built a tool that scores resume-to-job alignment across 15 categories, flags missing keywords, and generates rewritten bullet points — turning a manual, guesswork-heavy process into a one-click analysis."
+        data-tags="React,Tailwind CSS,Node.js"
+        data-live="https://jd-match.vercel.app"
+        data-source="https://github.com/Lucas-sam93/JD-Match">
+        <div class="pcard-img">
           <img src="jd-match-screenshot.png" alt="JD-Match app interface" />
         </div>
-        <div class="hcard-content">
-          <h3 class="card-title">JD-Match</h3>
-          <p class="card-subtitle">AI Resume-to-Job Alignment Tool</p>
-          <p class="card-desc">
-            Most job seekers don't know why their resumes get rejected by ATS filters. Built a tool that scores resume-to-job alignment across 15 categories, flags missing keywords, and generates rewritten bullet points — turning a manual, guesswork-heavy process into a one-click analysis.
-          </p>
-          <div class="tags">
-            <span class="tag">React</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Node.js</span>
-          </div>
-          <div class="card-links">
-            <a href="https://jd-match.vercel.app" target="_blank" rel="noopener noreferrer" class="card-link primary" data-cursor-hover>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
-              Live Demo
-            </a>
-            <a href="https://github.com/Lucas-sam93/JD-Match" target="_blank" rel="noopener noreferrer" class="card-link" data-cursor-hover>
-              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source
-            </a>
-          </div>
+        <div class="pcard-info">
+          <p class="pcard-label">Web App · AI</p>
+          <h3 class="pcard-title">JD-Match</h3>
+          <p class="pcard-sub">AI-powered resume-to-job alignment scoring across 15 categories.</p>
         </div>
       </div>
 
       <!-- 3. Singapore Parliamentary Elections -->
-      <div class="hcard" data-cursor-hover>
-        <div class="hcard-img">
-          <img src="singapore-elections-screenshot.png" alt="Singapore Parliamentary Elections dashboard" />
+      <div class="pcard reveal" data-cursor-hover
+        data-project="elections"
+        data-img="singapore-elections-screenshot.png"
+        data-title="Singapore Parliamentary Elections 1955–2025"
+        data-subtitle="70 Years of Votes vs Seats"
+        data-label="Data Visualization"
+        data-desc="Singapore's ruling party won 90.6% of seats with just 65.6% of the vote. Built a multi-dashboard Tableau story to quantify this votes-to-seats paradox across 70 years of elections and track the opposition's decades-long rise from 0 to 10 seats."
+        data-tags="Tableau,Data Visualization,Data Storytelling"
+        data-live="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox"
+        data-source="https://github.com/Lucas-sam93/singapore-parliamentary-elections">
+        <div class="pcard-img">
+          <img src="singapore-elections-screenshot.png" alt="Singapore Elections dashboard" />
         </div>
-        <div class="hcard-content">
-          <h3 class="card-title">Singapore Parliamentary Elections 1955-2025</h3>
-          <p class="card-subtitle">70 Years of Votes vs Seats</p>
-          <p class="card-desc">
-            Singapore's ruling party won 90.6% of seats with just 65.6% of the vote. Built a multi-dashboard Tableau story to quantify this votes-to-seats paradox across 70 years of elections and track the opposition's decades-long rise from 0 to 10 seats.
-          </p>
-          <div class="tags">
-            <span class="tag">Tableau</span>
-            <span class="tag">Data Visualization</span>
-            <span class="tag">Data Storytelling</span>
-          </div>
-          <div class="card-links">
-            <a href="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox" target="_blank" rel="noopener noreferrer" class="card-link primary" data-cursor-hover>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
-              Live Dashboard
-            </a>
-            <a href="https://github.com/Lucas-sam93/singapore-parliamentary-elections" target="_blank" rel="noopener noreferrer" class="card-link" data-cursor-hover>
-              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source
-            </a>
-          </div>
+        <div class="pcard-info">
+          <p class="pcard-label">Data Visualization</p>
+          <h3 class="pcard-title">SG Elections 1955–2025</h3>
+          <p class="pcard-sub">70 years of the votes-to-seats paradox in Tableau.</p>
         </div>
       </div>
 
       <!-- 4. Gender Pay Gap Analysis -->
-      <div class="hcard" data-cursor-hover>
-        <div class="hcard-img">
-          <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap Analysis dashboard" />
+      <div class="pcard reveal" data-cursor-hover
+        data-project="paygap"
+        data-img="gender-pay-gap-screenshot.png"
+        data-title="Gender Pay Gap Analysis"
+        data-subtitle="UK Companies Glass Ceiling Explorer"
+        data-label="SQL · Dashboard"
+        data-desc="Queried 10,000+ UK companies in BigQuery and found that women's representation drops 13 percentage points from entry-level to senior roles — a 'glass ceiling' effect worst in Finance and nearly absent in Care. Built an interactive dashboard to let users explore the data by sector, year, and company size."
+        data-tags="SQL,BigQuery,Python,Plotly,Pandas"
+        data-live="https://lucas-sam93.github.io/gender-pay-gap-analysis/"
+        data-source="https://github.com/Lucas-sam93/gender-pay-gap-analysis">
+        <div class="pcard-img">
+          <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap dashboard" />
         </div>
-        <div class="hcard-content">
-          <h3 class="card-title">Gender Pay Gap Analysis</h3>
-          <p class="card-subtitle">UK Companies Glass Ceiling Explorer</p>
-          <p class="card-desc">
-            Queried 10,000+ UK companies in BigQuery and found that women's representation drops 13 percentage points from entry-level to senior roles — a "glass ceiling" effect worst in Finance and nearly absent in Care. Built an interactive dashboard to let users explore the data by sector, year, and company size.
-          </p>
-          <div class="tags">
-            <span class="tag">SQL</span>
-            <span class="tag">BigQuery</span>
-            <span class="tag">Python</span>
-            <span class="tag">Plotly</span>
-            <span class="tag">Pandas</span>
-          </div>
-          <div class="card-links">
-            <a href="https://lucas-sam93.github.io/gender-pay-gap-analysis/" target="_blank" rel="noopener noreferrer" class="card-link primary" data-cursor-hover>
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
-              Live Dashboard
-            </a>
-            <a href="https://github.com/Lucas-sam93/gender-pay-gap-analysis" target="_blank" rel="noopener noreferrer" class="card-link" data-cursor-hover>
-              <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              Source
-            </a>
-          </div>
+        <div class="pcard-info">
+          <p class="pcard-label">SQL · Dashboard</p>
+          <h3 class="pcard-title">Gender Pay Gap</h3>
+          <p class="pcard-sub">Exploring the UK's glass ceiling across 10,000+ companies.</p>
         </div>
       </div>
 
-    </div>
-
-    <!-- Navigation: arrows + dots -->
-    <div class="projects-nav">
-      <button class="projects-arrow" id="prev-btn" aria-label="Previous project" data-cursor-hover disabled>
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
-      </button>
-      <div class="projects-dots" id="projects-dots">
-        <button class="dot active" aria-label="Project 1" data-cursor-hover></button>
-        <button class="dot" aria-label="Project 2" data-cursor-hover></button>
-        <button class="dot" aria-label="Project 3" data-cursor-hover></button>
-        <button class="dot" aria-label="Project 4" data-cursor-hover></button>
-      </div>
-      <button class="projects-arrow" id="next-btn" aria-label="Next project" data-cursor-hover>
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-      </button>
     </div>
   </section>
+
+  <!-- Project detail modal -->
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <aside class="project-modal" id="project-modal" role="dialog" aria-modal="true">
+    <div class="modal-close">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close project detail" data-cursor-hover>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <img class="modal-hero-img" id="modal-img" src="" alt="" />
+    <div class="modal-body">
+      <p class="modal-label" id="modal-label"></p>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-subtitle" id="modal-subtitle"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <p class="modal-section-label">Tech Stack</p>
+      <div class="modal-tags" id="modal-tags"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </aside>
 
   <!-- ── About Me ── -->
   <section id="about" class="section">
@@ -1191,7 +1255,7 @@
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      prevent: (node) => node.id === 'projects-track' || node.closest('#projects-track'),
+      prevent: (node) => node.closest('.project-modal'),
     });
 
     function raf(time) {
@@ -1418,104 +1482,75 @@
       });
     });
 
-    // ── Horizontal Project Scroll ──
-    const track = document.getElementById('projects-track');
-    const cards = track.querySelectorAll('.hcard');
-    const dots = document.querySelectorAll('#projects-dots .dot');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    let currentIndex = 0;
+    // ── Project Modal ──
+    const modal = document.getElementById('project-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const modalImg = document.getElementById('modal-img');
+    const modalLabel = document.getElementById('modal-label');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTags = document.getElementById('modal-tags');
+    const modalLinks = document.getElementById('modal-links');
 
-    // Calculate the scroll position to center a card in the track
-    function getCardScrollLeft(index) {
-      const card = cards[index];
-      const cardLeft = card.offsetLeft;
-      const cardWidth = card.offsetWidth;
-      const trackWidth = track.offsetWidth;
-      return cardLeft - (trackWidth / 2) + (cardWidth / 2);
+    function openModal(card) {
+      modalImg.src = card.dataset.img;
+      modalImg.alt = card.dataset.title;
+      modalLabel.textContent = card.dataset.label;
+      modalTitle.textContent = card.dataset.title;
+      modalSubtitle.textContent = card.dataset.subtitle;
+      modalDesc.textContent = card.dataset.desc;
+
+      // Tags
+      modalTags.innerHTML = '';
+      card.dataset.tags.split(',').forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag.trim();
+        modalTags.appendChild(span);
+      });
+
+      // Links
+      modalLinks.innerHTML = '';
+      if (card.dataset.live) {
+        modalLinks.innerHTML += `<a href="${card.dataset.live}" target="_blank" rel="noopener noreferrer" class="modal-link" data-cursor-hover>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+          Live Demo</a>`;
+      }
+      if (card.dataset.source) {
+        modalLinks.innerHTML += `<a href="${card.dataset.source}" target="_blank" rel="noopener noreferrer" class="modal-link" data-cursor-hover>
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Source</a>`;
+      }
+
+      modal.scrollTop = 0;
+      backdrop.classList.add('open');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lenis.stop();
     }
 
-    function scrollToCard(index) {
-      if (index < 0 || index >= cards.length) return;
-      currentIndex = index;
-      track.scrollTo({ left: getCardScrollLeft(index), behavior: 'smooth' });
-      updateNav();
+    function closeModal() {
+      backdrop.classList.remove('open');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      lenis.start();
     }
 
-    function updateNav() {
-      dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex === cards.length - 1;
-    }
-
-    // Arrow buttons
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      scrollToCard(currentIndex - 1);
-    });
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      scrollToCard(currentIndex + 1);
-    });
-
-    // Dot buttons
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        scrollToCard(i);
+    // Open on card click
+    document.querySelectorAll('.pcard').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't open modal if user clicked a link inside the card
+        if (e.target.closest('a')) return;
+        openModal(card);
       });
     });
 
-    // Track scroll position to update active dot
-    let scrollTimeout;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        const trackRect = track.getBoundingClientRect();
-        const center = trackRect.left + trackRect.width / 2;
-        let closest = 0;
-        let closestDist = Infinity;
-        cards.forEach((card, i) => {
-          const cardRect = card.getBoundingClientRect();
-          const cardCenter = cardRect.left + cardRect.width / 2;
-          const dist = Math.abs(cardCenter - center);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closest = i;
-          }
-        });
-        currentIndex = closest;
-        updateNav();
-      }, 50);
-    });
-
-    // Mouse wheel → horizontal scroll when over the track
-    // Only capture when there's room to scroll horizontally; let vertical scroll pass through at edges
-    track.addEventListener('wheel', (e) => {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-
-      const maxScrollLeft = track.scrollWidth - track.clientWidth;
-      const atStart = track.scrollLeft <= 1;
-      const atEnd = track.scrollLeft >= maxScrollLeft - 1;
-
-      // Let vertical scroll pass through if we're at the edge in the scroll direction
-      if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
-
-      e.preventDefault();
-      track.scrollLeft += e.deltaY;
-    }, { passive: false });
-
-    // Keyboard navigation when projects section is in view
+    // Close handlers
+    document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      const rect = track.getBoundingClientRect();
-      const inView = rect.top < window.innerHeight && rect.bottom > 0;
-      if (!inView) return;
-      if (e.key === 'ArrowRight') scrollToCard(currentIndex + 1);
-      if (e.key === 'ArrowLeft') scrollToCard(currentIndex - 1);
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
     // ── Navbar Scroll Effect ──
