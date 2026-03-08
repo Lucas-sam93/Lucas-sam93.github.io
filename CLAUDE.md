@@ -58,6 +58,11 @@
 - `data-cursor-hover` attribute marks interactive elements for cursor expansion
 - Project modals use `clip-path` curtain reveal + `history.pushState` for back button
 
+## Required Skills
+
+- **UI/UX Pro Max**: Always use this skill when applying visual, aesthetic, or UX improvements. Run the design system analysis and audit before implementing changes.
+- **Nano Banana Pro**: Always use this skill for generating or editing images to improve visuals (e.g., hero images, project screenshots, OG images, backgrounds).
+
 ## Autonomy & Boundaries
 
 - **NEVER execute changes without explicit user approval** — always suggest first
