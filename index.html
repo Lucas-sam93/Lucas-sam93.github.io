@@ -646,6 +646,76 @@
 
     .modal-link svg { width: 16px; height: 16px; }
 
+    /* Case study sections */
+    .case-study-section {
+      margin-bottom: 3rem;
+    }
+
+    .case-study-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .case-study-heading {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: border-color var(--transition-theme);
+    }
+
+    .case-study-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      transition: color var(--transition-theme);
+    }
+
+    .case-study-text + .case-study-text {
+      margin-top: 1rem;
+    }
+
+    .case-study-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .case-study-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+      transition: color var(--transition-theme);
+    }
+
+    .case-study-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      transition: background var(--transition-theme);
+    }
+
+    .case-study-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+      margin: 3rem 0;
+      transition: background var(--transition-theme);
+    }
+
     @media (max-width: 768px) {
       .modal-nav { padding: 1.25rem 1.5rem; }
       .modal-hero-img { padding: 0 1.5rem; border-radius: 0.5rem; }
@@ -931,7 +1001,7 @@
       data-desc="Singapore's ruling party won 90.6% of seats with just 65.6% of the vote. Built a multi-dashboard Tableau story to quantify this votes-to-seats paradox across 70 years of elections and track the opposition's decades-long rise from 0 to 10 seats."
       data-tags="Tableau,Data Visualization,Data Storytelling"
       data-live="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox"
-      data-source="https://github.com/Lucas-sam93/singapore-parliamentary-elections">
+      data-source="https://github.com/Lucas-sam93/SG-Elections-Tableau">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
           <img src="singapore-elections-screenshot.png" alt="Singapore Elections dashboard" />
@@ -984,7 +1054,14 @@
       <p class="modal-label" id="modal-label"></p>
       <h2 class="modal-title" id="modal-title"></h2>
       <p class="modal-subtitle" id="modal-subtitle"></p>
-      <p class="modal-desc" id="modal-desc"></p>
+
+      <div class="case-study-divider"></div>
+
+      <!-- Case study sections populated by JS -->
+      <div id="modal-case-study"></div>
+
+      <div class="case-study-divider"></div>
+
       <p class="modal-section-label">Tech Stack</p>
       <div class="modal-tags" id="modal-tags"></div>
       <div class="modal-links" id="modal-links"></div>
@@ -1349,15 +1426,117 @@
       });
     });
 
+    // ── Project Case Study Data ──
+    const projectDetails = {
+      'Heartbeat or Noise?': {
+        overview: 'Machine learning capstone project evaluating whether consumer wearable signals from smartwatches can serve as low-barrier cardiac screening proxies. Trained binary classifiers on 8,500+ clinical ECG recordings from the Physionet 2017 Challenge, then validated against real PPG wearable data from MIMIC PERform AF (35 ICU subjects) and a personal Apple Watch SE spanning 4.8 years.',
+        problem: 'Cardiovascular disease causes 30.5% of all deaths in Singapore \u2014 roughly 22 lives lost daily. Yet 49% of residents skipped their annual health checkup, leaving a significant population unaware of underlying cardiac risk. Clinical ECG screening requires hospital visits and specialist referrals \u2014 a barrier that consumer wearables, worn by millions daily, could potentially lower.',
+        solution: 'Trained ML models on clinical ECG data using only 8 features extractable from consumer wearables (HRV metrics like RMSSD, SDNN, Mean RR). The deliberate feature constraint ensures the model reflects real-world deployment conditions. If the model generalizes across modalities, wearables could flag at-risk individuals for formal clinical evaluation before an acute cardiac event.',
+        findings: [
+          'SVM model achieved 84.4% sensitivity, 87.3% specificity, and AUROC 0.9080 on clinical held-out test set',
+          '98.8% atrial fibrillation detection sensitivity \u2014 near-perfect AF catch rate',
+          'MIMIC PPG validation: AUROC 0.8586 confirms discriminative signal transfers across modalities (ECG \u2192 PPG)',
+          'Modality gap is a calibration problem, not a discrimination failure \u2014 threshold recalibration recovers specificity from 12.5% to 81.2%+',
+          'Apple Watch N=1 case study: null result \u2014 5 of 8 features show large signal modality gaps (KS > 0.3)',
+        ],
+        methodology: [
+          'Layer 1: Trained 4 classifiers (Logistic Regression, Random Forest, XGBoost, SVM) on Physionet 2017 dataset with 5-fold stratified cross-validation',
+          'Pre-registered performance threshold: Sensitivity \u2265 80% at Specificity \u2265 75%',
+          'Feature set locked to 8 wearable-extractable HRV features; frequency domain permanently excluded (consumer wearables lack raw beat-interval access)',
+          'Layer 2: Validated on MIMIC PERform AF PPG data (35 subjects, finger PPG with ground-truth labels) and personal Apple Watch data (478,000+ heart rate records over 4.8 years)',
+          'Stress testing: Bootstrap AUROC (n=1000), sensitivity-targeted LOOCV, threshold recalibration via Youden\'s J',
+        ],
+      },
+      'JD-Match': {
+        overview: 'Full-stack web application that helps job seekers beat Applicant Tracking Systems. Powered by Google Gemini 2.5 Flash, it analyzes resume-to-job alignment using Strict Evidence Matching \u2014 surfacing keyword gaps, scoring fit across 15 categories, and generating AI-rewritten bullet points.',
+        problem: 'Most job seekers don\'t know why their resumes get rejected by ATS filters. They manually guess which keywords matter and rewrite blindly \u2014 a time-consuming process with no feedback loop. The gap between what a job description requires and what a resume communicates is invisible without systematic analysis.',
+        solution: 'Built a one-click analysis tool that scores resume-to-job alignment across 15 categories with Strict Evidence Matching. It flags missing keywords with a hallucination check (skills the AI suspects but can\'t verify from resume text), applies a "So What?" test to weak bullet points, and generates before/after rewrites. A side-by-side refinement workspace lets users edit their resume while viewing the analysis.',
+        findings: [
+          'Strict Evidence Matching with Exposure vs Expertise weighting eliminates AI hallucination in skill claims',
+          'The "So What?" test identifies bullet points that state tasks without measurable impact \u2014 the #1 reason resumes fail ATS screening',
+          'Overall Match Hero Score averages Skills Matched, Achievement Strength, and ATS Ready into a single actionable gauge',
+          'PDF export with jsPDF enables immediate use of the optimized resume \u2014 no copy-paste needed',
+        ],
+        methodology: [
+          'Frontend: React 18 + Vite + Tailwind CSS v4 with Framer Motion staggered animations and glassmorphism UI',
+          'Backend: Node.js/Express locally, Vercel Serverless Functions in production with Formidable for file uploads',
+          'AI Engine: Google Gemini 2.5 Flash API with structured prompting for evidence-based, zero-inference scoring',
+          'Document parsing: pdf-parse for PDFs, mammoth for Word docs, jsPDF for export',
+          'CI/CD: GitHub Actions + Vercel auto-deploy on push to master',
+        ],
+      },
+      'Singapore Parliamentary Elections 1955\u20132025': {
+        overview: 'Interactive Tableau dashboard story visualizing 70 years of Singapore parliamentary elections \u2014 from the first Legislative Assembly in 1955 through GE2025. A multi-dashboard exploration that quantifies the votes-to-seats paradox and tracks the opposition\'s decades-long rise.',
+        problem: 'Singapore\'s first-past-the-post electoral system creates a dramatic disconnect between popular vote share and parliamentary seat share. The ruling PAP won 90.6% of seats with just 65.6% of the vote in recent elections \u2014 but this paradox is rarely quantified or visualized across the full 70-year historical record in an accessible, interactive format.',
+        solution: 'Built a multi-dashboard Tableau story that lets users explore the votes-to-seats relationship, constituency-level results, and party performance trends across every general election from 1955 to 2025. Each dashboard is a chapter in a data-driven narrative \u2014 The Paradox, The Rise, The Verdict.',
+        findings: [
+          'PAP won 90.6% of seats with 65.6% of votes \u2014 a 25 percentage point paradox between vote share and seat share',
+          'Opposition rose from 0 seats during the 1968\u20131981 period to 10 seats in GE2025',
+          'PAP vote share declined from 87% (1968) to 65.6% (2025), but seat share did not decline proportionally',
+          'GRC (Group Representation Constituency) system and constituency boundary changes significantly amplify the votes-to-seats paradox',
+        ],
+        methodology: [
+          'Data collection: Manual compilation from official Singapore Elections Department records spanning 1955\u20132025',
+          'Data cleaning: Standardized party names, constituency boundaries, and vote tallies across 70 years of changing electoral formats',
+          'Visualization: Tableau Public with multi-dashboard story format \u2014 6+ dashboards covering the paradox, party trends, and historical context',
+          'Narrative structure: Each dashboard functions as a chapter \u2014 building from the macro paradox down to constituency-level details',
+        ],
+      },
+      'Gender Pay Gap Analysis': {
+        overview: 'SQL-driven analysis of gender pay disparities across 10,000+ UK companies, with an interactive dashboard exploring the "glass ceiling" effect \u2014 the measurable drop in women\'s representation from entry-level to senior roles, broken down by sector, company size, and year.',
+        problem: 'Gender pay gap discussions often focus on aggregate national statistics without revealing where disparities are worst. Which sectors have the steepest glass ceiling? Which company sizes are closest to parity? How has the gap changed over time? Without granular, interactive exploration, these questions remain unanswered for most stakeholders.',
+        solution: 'Queried 10,000+ UK companies in BigQuery to quantify the glass ceiling effect by sector and seniority level. Built an interactive HTML dashboard hosted on GitHub Pages so users can explore the data themselves \u2014 filtering by sector, year, and company size to find the patterns most relevant to their context.',
+        findings: [
+          'Women\'s representation drops 13 percentage points from entry-level to senior roles across all sectors',
+          'Glass ceiling effect is worst in Finance and nearly absent in the Care sector',
+          '15% of UK companies have achieved gender pay parity',
+          'At current rates of progress, proposed interventions could reduce the time to full pay parity by 43 years',
+        ],
+        methodology: [
+          'Data source: UK Government Gender Pay Gap Service \u2014 mandatory reporting data from 10,000+ companies',
+          'Data cleaning and preprocessing: SQL queries in Google BigQuery',
+          'Exploratory analysis: SQL-driven aggregation by sector, company size, and seniority level',
+          'Dashboard: Interactive HTML/JS visualization hosted on GitHub Pages with cross-sectoral comparison filters',
+        ],
+      },
+    };
+
     // ── Full-Page Project Modal ──
     const modal = document.getElementById('project-modal');
     const modalImg = document.getElementById('modal-img');
     const modalLabel = document.getElementById('modal-label');
     const modalTitle = document.getElementById('modal-title');
     const modalSubtitle = document.getElementById('modal-subtitle');
-    const modalDesc = document.getElementById('modal-desc');
+    const modalCaseStudy = document.getElementById('modal-case-study');
     const modalTags = document.getElementById('modal-tags');
     const modalLinks = document.getElementById('modal-links');
+
+    function buildCaseStudyHTML(details) {
+      if (!details) return '';
+
+      const listToHTML = (items) =>
+        `<ul class="case-study-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+
+      return `
+        <div class="case-study-section">
+          <h3 class="case-study-heading">Overview</h3>
+          <p class="case-study-text">${details.overview}</p>
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">Problem + Solution</h3>
+          <p class="case-study-text">${details.problem}</p>
+          <p class="case-study-text">${details.solution}</p>
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">Key Findings</h3>
+          ${listToHTML(details.findings)}
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">Methodology</h3>
+          ${listToHTML(details.methodology)}
+        </div>
+      `;
+    }
 
     function openModal(section) {
       modalImg.src = section.dataset.img;
@@ -1365,7 +1544,10 @@
       modalLabel.textContent = section.dataset.label;
       modalTitle.textContent = section.dataset.title;
       modalSubtitle.textContent = section.dataset.subtitle;
-      modalDesc.textContent = section.dataset.desc;
+
+      // Case study content
+      const details = projectDetails[section.dataset.title];
+      modalCaseStudy.innerHTML = buildCaseStudyHTML(details);
 
       // Tags
       modalTags.innerHTML = '';
