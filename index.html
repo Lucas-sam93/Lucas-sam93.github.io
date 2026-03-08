@@ -1426,10 +1426,19 @@
     const nextBtn = document.getElementById('next-btn');
     let currentIndex = 0;
 
+    // Calculate the scroll position to center a card in the track
+    function getCardScrollLeft(index) {
+      const card = cards[index];
+      const cardLeft = card.offsetLeft;
+      const cardWidth = card.offsetWidth;
+      const trackWidth = track.offsetWidth;
+      return cardLeft - (trackWidth / 2) + (cardWidth / 2);
+    }
+
     function scrollToCard(index) {
       if (index < 0 || index >= cards.length) return;
       currentIndex = index;
-      cards[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      track.scrollTo({ left: getCardScrollLeft(index), behavior: 'smooth' });
       updateNav();
     }
 
@@ -1440,12 +1449,24 @@
     }
 
     // Arrow buttons
-    prevBtn.addEventListener('click', () => scrollToCard(currentIndex - 1));
-    nextBtn.addEventListener('click', () => scrollToCard(currentIndex + 1));
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollToCard(currentIndex - 1);
+    });
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollToCard(currentIndex + 1);
+    });
 
     // Dot buttons
     dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => scrollToCard(i));
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        scrollToCard(i);
+      });
     });
 
     // Track scroll position to update active dot
@@ -1472,16 +1493,24 @@
     });
 
     // Mouse wheel → horizontal scroll when over the track
+    // Only capture when there's room to scroll horizontally; let vertical scroll pass through at edges
     track.addEventListener('wheel', (e) => {
-      // Only capture if there's meaningful vertical scroll intent
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        track.scrollLeft += e.deltaY;
-      }
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+
+      const maxScrollLeft = track.scrollWidth - track.clientWidth;
+      const atStart = track.scrollLeft <= 1;
+      const atEnd = track.scrollLeft >= maxScrollLeft - 1;
+
+      // Let vertical scroll pass through if we're at the edge in the scroll direction
+      if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+
+      e.preventDefault();
+      track.scrollLeft += e.deltaY;
     }, { passive: false });
 
     // Keyboard navigation when projects section is in view
     document.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       const rect = track.getBoundingClientRect();
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
       if (!inView) return;
