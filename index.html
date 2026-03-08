@@ -14,10 +14,15 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lucas Sam — Data Analyst" />
   <meta name="twitter:description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
-  <meta property="og:image" content="https://lucas-sam93.github.io/capstone-ecg-screenshot.png" />
+  <meta property="og:image" content="https://lucas-sam93.github.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Lucas Sam — Data Analyst Portfolio" />
-  <meta name="twitter:image" content="https://lucas-sam93.github.io/capstone-ecg-screenshot.png" />
+  <meta name="twitter:image" content="https://lucas-sam93.github.io/og-image.png" />
   <link rel="canonical" href="https://lucas-sam93.github.io" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0a'/%3E%3Ctext x='4' y='24' font-family='system-ui,sans-serif' font-size='22' font-weight='700' fill='%23ccbb87'%3ELS%3C/text%3E%3C/svg%3E" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -33,13 +38,14 @@
       "url": "https://lucas-sam93.github.io",
       "sameAs": [
         "https://github.com/Lucas-sam93",
-        "https://www.linkedin.com/in/lucas-sam"
+        "https://www.linkedin.com/in/lucas-sam-54aba3106"
       ]
     }
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Koulen&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
@@ -163,6 +169,18 @@
     .modal-back:focus-visible,
     .modal-link:focus-visible {
       outline-color: var(--accent-warm);
+    }
+
+    /* ── Scroll Progress Bar ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent-warm);
+      z-index: 9999;
+      transition: opacity 0.3s ease;
     }
 
     /* ── Custom Cursor ── */
@@ -454,6 +472,7 @@
       cursor: none;
     }
 
+
     .project-showcase-inner {
       width: 100%;
       max-width: 1400px;
@@ -559,8 +578,16 @@
       transition: color 0.3s ease;
     }
 
+    .project-view svg {
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
     .project-showcase:hover .project-view {
       color: var(--text-primary);
+    }
+
+    .project-showcase:hover .project-view svg {
+      transform: translateX(4px);
     }
 
     @media (max-width: 768px) {
@@ -1195,6 +1222,9 @@
   </style>
 </head>
 <body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- Grain overlay -->
   <a href="#projects" class="skip-link">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>
@@ -1241,7 +1271,7 @@
   <section class="hero" id="hero">
     <div class="hero-content">
       <h1 class="hero-name" id="hero-name">Lucas<br/>Sam</h1>
-      <p class="hero-title" id="hero-title">Data Analyst</p>
+      <p class="hero-title" id="hero-title">Data Analyst — Turning messy data into clear decisions</p>
     </div>
   </section>
 
@@ -1260,7 +1290,7 @@
       data-source="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
-          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" loading="lazy" />
+          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" loading="eager" />
         </div>
         <div class="project-text">
           <span class="project-number">01</span>
@@ -1270,7 +1300,7 @@
           </div>
           <p class="project-label">Machine Learning · Healthcare</p>
           <h3 class="project-name">Heartbeat or Noise?</h3>
-          <p class="project-desc">Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a cardiac screening proxy.</p>
+          <p class="project-desc">Can a $300 smartwatch detect heart disease as reliably as a $3,000 clinical ECG? Tested across 8,500+ recordings with 84.4% sensitivity and 0.91 AUROC.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1294,7 +1324,7 @@
           <span class="project-number">02</span>
           <p class="project-label">Web App · AI</p>
           <h3 class="project-name">JD-Match</h3>
-          <p class="project-desc">AI-powered resume-to-job alignment scoring across 15 categories with keyword analysis and bullet point rewrites.</p>
+          <p class="project-desc">Why do qualified resumes get rejected by ATS filters? Built a tool that scores alignment across 15 categories and rewrites weak bullet points in one click.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1318,7 +1348,7 @@
           <span class="project-number">03</span>
           <p class="project-label">Data Visualization</p>
           <h3 class="project-name">SG Elections 1955–2025</h3>
-          <p class="project-desc">70 years of the votes-to-seats paradox, visualized across multiple Tableau dashboards.</p>
+          <p class="project-desc">How does a party win 90.6% of seats with just 65.6% of votes? Visualized 70 years of Singapore's votes-to-seats paradox across 6 interactive dashboards.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1342,7 +1372,7 @@
           <span class="project-number">04</span>
           <p class="project-label">SQL · Dashboard</p>
           <h3 class="project-name">Gender Pay Gap</h3>
-          <p class="project-desc">Exploring the UK's glass ceiling across 10,000+ companies with interactive data exploration.</p>
+          <p class="project-desc">Where does the glass ceiling hit hardest? Queried 10,000+ UK companies and found a 13-point drop in women's representation from entry to senior roles.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1394,7 +1424,8 @@
       <p class="reveal">
         I'm now looking for my first data analyst role where I can combine my analytical foundation,
         communication skills from working with non-technical clients, and a builder's mindset for creating
-        tools that make data accessible.
+        tools that make data accessible. I'm drawn to problems where data is messy, stakeholders are skeptical,
+        and the right visualization can change someone's mind.
       </p>
     </div>
   </section>
@@ -1434,15 +1465,15 @@
   <!-- ── Footer ── -->
   <footer class="footer-cta">
     <h2 class="footer-cta-heading">Let's <span class="accent">Work</span><br/>Together</h2>
-    <a href="mailto:lucassam93@gmail.com" class="footer-cta-email" data-cursor-hover>lucassam93@gmail.com</a>
+    <a href="mailto:lucas.sam93@gmail.com" class="footer-cta-email" data-cursor-hover>lucas.sam93@gmail.com</a>
     <div class="footer-socials">
       <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="GitHub">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
-      <a href="https://www.linkedin.com/in/lucas-sam" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="LinkedIn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <a href="mailto:lucassam93@gmail.com" class="footer-social-link" data-cursor-hover aria-label="Email">
+      <a href="mailto:lucas.sam93@gmail.com" class="footer-social-link" data-cursor-hover aria-label="Email">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
       </a>
     </div>
@@ -1653,115 +1684,143 @@
     // ── GSAP Setup ──
     gsap.registerPlugin(ScrollTrigger);
 
-    // Fade out particle canvas on scroll
-    gsap.to('#particle-canvas', {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '#projects',
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: true,
-      }
-    });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ── Project Showcase — Sticky Pinning + Parallax ──
-    const mm = gsap.matchMedia();
-
-    // Hero parallax exit — fade out and translate up on scroll
-    gsap.to('.hero-content', {
-      y: -100,
-      opacity: 0,
+    // ── Scroll Progress Bar ──
+    const scrollProgressBar = document.getElementById('scroll-progress');
+    gsap.to(scrollProgressBar, {
+      width: '100%',
       ease: 'none',
       scrollTrigger: {
-        trigger: '.hero',
+        trigger: document.body,
         start: 'top top',
-        end: 'bottom top',
-        scrub: true,
+        end: 'bottom bottom',
+        scrub: 0.1,
       },
     });
 
-    mm.add('(min-width: 769px)', () => {
-      gsap.utils.toArray('.project-showcase').forEach((section) => {
-        // Pin each showcase for one viewport of scroll
-        ScrollTrigger.create({
-          trigger: section,
+    if (!prefersReducedMotion) {
+      // Fade out particle canvas on scroll
+      gsap.to('#particle-canvas', {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '#projects',
+          start: 'top 80%',
+          end: 'top 20%',
+          scrub: true,
+        }
+      });
+
+      // ── Project Showcase — Sticky Pinning + Parallax ──
+      const mm = gsap.matchMedia();
+
+      // Hero parallax exit — fade out and translate up on scroll
+      gsap.to('.hero-content', {
+        y: -100,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
           start: 'top top',
-          end: '+=80%',
-          pin: true,
-          pinSpacing: true,
-        });
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
 
-        // Parallax on image during scroll
-        gsap.to(section.querySelector('.project-image-wrap img'), {
-          yPercent: 10,
-          ease: 'none',
-          scrollTrigger: {
+      mm.add('(min-width: 769px)', () => {
+        gsap.utils.toArray('.project-showcase').forEach((section) => {
+          // Pin each showcase for one viewport of scroll
+          ScrollTrigger.create({
             trigger: section,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
+            start: 'top top',
+            end: '+=80%',
+            pin: true,
+            pinSpacing: true,
+          });
 
-        // Text slide in
-        gsap.from(section.querySelector('.project-text'), {
-          x: section.classList.contains('reverse') ? -60 : 60,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          }
-        });
+          // Parallax on image during scroll
+          gsap.to(section.querySelector('.project-image-wrap img'), {
+            yPercent: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            }
+          });
 
-        // Image slide in
-        gsap.from(section.querySelector('.project-image-wrap'), {
-          x: section.classList.contains('reverse') ? 60 : -60,
-          opacity: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 70%',
-            toggleActions: 'play none none none',
-          }
+          // Image slide in
+          gsap.from(section.querySelector('.project-image-wrap'), {
+            x: section.classList.contains('reverse') ? 60 : -60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 70%',
+              toggleActions: 'play none none none',
+            }
+          });
+
+          // Staggered text elements entrance
+          const textEl = section.querySelector('.project-text');
+          const textChildren = textEl.querySelectorAll('.project-number, .project-badges, .project-label, .project-name, .project-desc, .project-view');
+          const direction = section.classList.contains('reverse') ? -60 : 60;
+
+          gsap.from(textChildren, {
+            x: direction,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 70%',
+              toggleActions: 'play none none none',
+            }
+          });
         });
       });
-    });
 
-    mm.add('(max-width: 768px)', () => {
-      // Mobile: simple fade-in, no pinning
-      gsap.utils.toArray('.project-showcase').forEach((section) => {
-        gsap.from(section, {
-          opacity: 0,
-          y: 60,
+      mm.add('(max-width: 768px)', () => {
+        // Mobile: simple fade-in, no pinning
+        gsap.utils.toArray('.project-showcase').forEach((section) => {
+          gsap.from(section, {
+            opacity: 0,
+            y: 60,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          });
+        });
+      });
+
+      // ── GSAP Scroll Reveals (About, Contact, etc.) ──
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
           duration: 0.8,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: section,
-            start: 'top 85%',
+            trigger: el,
+            start: 'top 88%',
             toggleActions: 'play none none none',
-          }
+          },
         });
       });
-    });
-
-    // ── GSAP Scroll Reveals (About, Contact, etc.) ──
-    gsap.utils.toArray('.reveal').forEach((el) => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          toggleActions: 'play none none none',
-        },
+    } else {
+      // Reduced motion: make all reveals visible immediately
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
       });
-    });
+    }
 
     // ── Project Case Study Data ──
     const projectDetails = {
