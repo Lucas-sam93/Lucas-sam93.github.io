@@ -36,6 +36,8 @@
       --text-secondary: #888888;
       --text-muted: #555555;
       --text-accent: #cccccc;
+      --accent-warm: #ccbb87;
+      --accent-warm-dim: rgba(204, 187, 135, 0.4);
       --cursor-color: #e8e8e8;
       --particle-color: 232, 232, 232;
       --grain-opacity: 0.05;
@@ -60,6 +62,8 @@
       --text-secondary: #666666;
       --text-muted: #999999;
       --text-accent: #444444;
+      --accent-warm: #8a7a4a;
+      --accent-warm-dim: rgba(138, 122, 74, 0.4);
       --cursor-color: #1a1a1a;
       --particle-color: 30, 30, 30;
       --grain-opacity: 0.03;
@@ -104,8 +108,8 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 12px;
-      height: 12px;
+      width: 6px;
+      height: 6px;
       background: var(--cursor-color);
       border-radius: 50%;
       pointer-events: none;
@@ -124,10 +128,10 @@
     }
 
     .cursor.hovering {
-      width: 48px;
-      height: 48px;
-      background: rgba(var(--particle-color), 0.15);
-      border: 1px solid rgba(var(--particle-color), 0.4);
+      width: 36px;
+      height: 36px;
+      background: rgba(var(--particle-color), 0.1);
+      border: 1px solid rgba(var(--particle-color), 0.3);
     }
 
     /* ── Grain Overlay ── */
@@ -297,6 +301,18 @@
       z-index: 1;
     }
 
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30vh;
+      background: linear-gradient(to bottom, transparent, var(--bg-primary));
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .hero-content {
       text-align: center;
     }
@@ -387,7 +403,7 @@
     }
 
     .project-image-wrap {
-      flex: 0 0 55%;
+      flex: 0 0 65%;
       height: 65vh;
       border-radius: 0.75rem;
       overflow: hidden;
@@ -399,12 +415,15 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
-      will-change: transform;
-      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+      will-change: transform, filter;
+      filter: grayscale(40%) brightness(0.85);
+      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                  filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .project-showcase:hover .project-image-wrap img {
       transform: scale(1.03);
+      filter: grayscale(0%) brightness(1);
     }
 
     .project-text {
@@ -415,7 +434,7 @@
       font-family: 'Roboto Mono', monospace;
       font-size: 0.7rem;
       font-weight: 400;
-      color: var(--text-muted);
+      color: var(--accent-warm);
       letter-spacing: 0.1em;
       display: block;
       margin-bottom: 1rem;
@@ -464,7 +483,7 @@
       font-family: 'Roboto Mono', monospace;
       font-size: 0.75rem;
       font-weight: 500;
-      color: var(--text-accent);
+      color: var(--accent-warm);
       letter-spacing: 0.05em;
       text-transform: uppercase;
       display: inline-flex;
@@ -848,18 +867,119 @@
       transition: color var(--transition-theme);
     }
 
-    /* ── Footer ── */
-    .footer {
-      border-top: 1px solid var(--border-color);
-      padding: 2.5rem 2rem;
+    /* ── Availability Status ── */
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-status { display: none; }
+    }
+
+    /* ── Footer CTA ── */
+    .footer-cta {
+      padding: 10rem 3rem 4rem;
       text-align: center;
+      position: relative;
+    }
+
+    .footer-cta-heading {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .footer-cta-heading .accent {
+      color: var(--accent-warm);
+    }
+
+    .footer-cta-email {
+      font-family: 'Roboto Mono', monospace;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+      margin-bottom: 3rem;
+    }
+
+    .footer-cta-email:hover {
+      border-color: var(--accent-warm);
+      color: var(--text-primary);
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-social {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-social:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-bottom {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-color);
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       transition: border-color var(--transition-theme);
     }
 
-    .footer p {
-      font-size: 0.8rem;
+    .footer-bottom p {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.65rem;
       color: var(--text-muted);
-      font-weight: 300;
+      font-weight: 400;
+      letter-spacing: 0.05em;
       transition: color var(--transition-theme);
     }
 
@@ -898,6 +1018,7 @@
   <!-- ── Navigation — blend-mode difference ── -->
   <nav class="nav" id="navbar">
     <a href="#" class="nav-logo" data-cursor-hover>Lucas Sam</a>
+    <span class="nav-status"><span class="status-dot"></span>Available</span>
 
     <div class="nav-links">
       <a href="#projects" class="nav-link" data-cursor-hover>Projects</a>
@@ -1124,8 +1245,24 @@
   </section>
 
   <!-- ── Footer ── -->
-  <footer class="footer">
-    <p>&copy; 2026 Lucas Sam</p>
+  <footer class="footer-cta">
+    <h2 class="footer-cta-heading">Let's <span class="accent">Work</span><br/>Together</h2>
+    <a href="mailto:lucassam93@gmail.com" class="footer-cta-email" data-cursor-hover>lucassam93@gmail.com</a>
+    <div class="footer-socials">
+      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/lucas-sam" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:lucassam93@gmail.com" class="footer-social-link" data-cursor-hover>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Lucas Sam</span>
+      <span class="nav-status"><span class="status-dot"></span>Available for Work</span>
+    </div>
   </footer>
 
   <!-- ── Libraries ── -->
@@ -1342,6 +1479,19 @@
 
     // ── Project Showcase — Sticky Pinning + Parallax ──
     const mm = gsap.matchMedia();
+
+    // Hero parallax exit — fade out and translate up on scroll
+    gsap.to('.hero-content', {
+      y: -100,
+      opacity: 0,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+      },
+    });
 
     mm.add('(min-width: 769px)', () => {
       gsap.utils.toArray('.project-showcase').forEach((section) => {
