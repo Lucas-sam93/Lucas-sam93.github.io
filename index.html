@@ -14,7 +14,30 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lucas Sam — Data Analyst" />
   <meta name="twitter:description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
+  <meta property="og:image" content="https://lucas-sam93.github.io/capstone-ecg-screenshot.png" />
+  <meta property="og:image:alt" content="Lucas Sam — Data Analyst Portfolio" />
+  <meta name="twitter:image" content="https://lucas-sam93.github.io/capstone-ecg-screenshot.png" />
   <link rel="canonical" href="https://lucas-sam93.github.io" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lucas Sam — Data Analyst",
+    "url": "https://lucas-sam93.github.io",
+    "author": {
+      "@type": "Person",
+      "name": "Lucas Sam",
+      "jobTitle": "Data Analyst",
+      "url": "https://lucas-sam93.github.io",
+      "sameAs": [
+        "https://github.com/Lucas-sam93",
+        "https://www.linkedin.com/in/lucas-sam"
+      ]
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Koulen&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -34,7 +57,7 @@
       --border-hover: #333333;
       --text-primary: #e8e8e8;
       --text-secondary: #888888;
-      --text-muted: #555555;
+      --text-muted: #737373;
       --text-accent: #cccccc;
       --accent-warm: #ccbb87;
       --accent-warm-dim: rgba(204, 187, 135, 0.4);
@@ -60,7 +83,7 @@
       --border-hover: #cccccc;
       --text-primary: #1a1a1a;
       --text-secondary: #666666;
-      --text-muted: #999999;
+      --text-muted: #717171;
       --text-accent: #444444;
       --accent-warm: #8a7a4a;
       --accent-warm-dim: rgba(138, 122, 74, 0.4);
@@ -102,6 +125,45 @@
     a { color: inherit; text-decoration: none; cursor: none; }
     button { cursor: none; }
     img { display: block; max-width: 100%; }
+
+    /* ── Skip to Content ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      padding: 0.75rem 1.5rem;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: 0 0 0.5rem 0.5rem;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ── Focus States ── */
+    :focus-visible {
+      outline: 2px solid var(--accent-warm);
+      outline-offset: 3px;
+    }
+
+    .nav-link:focus-visible,
+    .nav-resume:focus-visible,
+    .nav-logo:focus-visible {
+      outline-color: #fff;
+    }
+
+    .modal-back:focus-visible,
+    .modal-link:focus-visible {
+      outline-color: var(--accent-warm);
+    }
 
     /* ── Custom Cursor ── */
     .cursor {
@@ -228,6 +290,8 @@
       border: none;
       color: #fff;
       padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
     }
 
     .mobile-overlay {
@@ -270,6 +334,8 @@
       border: none;
       color: var(--text-secondary);
       padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
     }
 
     @media (max-width: 768px) {
@@ -415,6 +481,7 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      aspect-ratio: 16 / 9;
       will-change: transform, filter;
       filter: grayscale(40%) brightness(0.85);
       transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
@@ -449,7 +516,7 @@
 
     .project-label {
       font-family: 'Roboto Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       font-weight: 500;
       color: var(--text-muted);
       letter-spacing: 0.1em;
@@ -561,6 +628,8 @@
       gap: 0.5rem;
       transition: color 0.3s ease;
       cursor: none;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
     }
 
     .modal-back:hover { color: var(--text-primary); }
@@ -949,8 +1018,8 @@
     }
 
     .footer-social-link {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1127,6 +1196,7 @@
 </head>
 <body>
   <!-- Grain overlay -->
+  <a href="#projects" class="skip-link">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>
 
   <!-- Custom cursor -->
@@ -1190,7 +1260,7 @@
       data-source="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
-          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" />
+          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" loading="lazy" />
         </div>
         <div class="project-text">
           <span class="project-number">01</span>
@@ -1218,7 +1288,7 @@
       data-source="https://github.com/Lucas-sam93/JD-Match">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
-          <img src="jd-match-screenshot.png" alt="JD-Match app interface" />
+          <img src="jd-match-screenshot.png" alt="JD-Match app interface" loading="lazy" />
         </div>
         <div class="project-text">
           <span class="project-number">02</span>
@@ -1242,7 +1312,7 @@
       data-source="https://github.com/Lucas-sam93/SG-Elections-Tableau">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
-          <img src="singapore-elections-screenshot.png" alt="Singapore Elections dashboard" />
+          <img src="singapore-elections-screenshot.png" alt="Singapore Elections dashboard" loading="lazy" />
         </div>
         <div class="project-text">
           <span class="project-number">03</span>
@@ -1266,7 +1336,7 @@
       data-source="https://github.com/Lucas-sam93/gender-pay-gap-analysis">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
-          <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap dashboard" />
+          <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap dashboard" loading="lazy" />
         </div>
         <div class="project-text">
           <span class="project-number">04</span>
@@ -1280,9 +1350,9 @@
   </div>
 
   <!-- ── Full-Page Project Modal ── -->
-  <aside class="project-modal" id="project-modal" role="dialog" aria-modal="true">
+  <aside class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-nav">
-      <button class="modal-back" id="modal-back" data-cursor-hover>
+      <button class="modal-back" id="modal-back" data-cursor-hover aria-label="Go back">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
         Back
       </button>
@@ -1366,13 +1436,13 @@
     <h2 class="footer-cta-heading">Let's <span class="accent">Work</span><br/>Together</h2>
     <a href="mailto:lucassam93@gmail.com" class="footer-cta-email" data-cursor-hover>lucassam93@gmail.com</a>
     <div class="footer-socials">
-      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover>
+      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="GitHub">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
-      <a href="https://www.linkedin.com/in/lucas-sam" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover>
+      <a href="https://www.linkedin.com/in/lucas-sam" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="LinkedIn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <a href="mailto:lucassam93@gmail.com" class="footer-social-link" data-cursor-hover>
+      <a href="mailto:lucassam93@gmail.com" class="footer-social-link" data-cursor-hover aria-label="Email">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
       </a>
     </div>
@@ -1805,7 +1875,11 @@
       `;
     }
 
+    let previouslyFocusedElement = null;
+
     function openModal(section) {
+      previouslyFocusedElement = document.activeElement;
+
       modalImg.src = section.dataset.img;
       modalImg.alt = section.dataset.title;
       modalLabel.textContent = section.dataset.label;
@@ -1843,13 +1917,40 @@
       document.body.style.overflow = 'hidden';
       lenis.stop();
       history.pushState({ modal: true }, '');
+
+      // Focus the back button after transition completes
+      setTimeout(() => {
+        document.getElementById('modal-back').focus();
+      }, 800);
     }
 
     function closeModal() {
       modal.classList.remove('open');
       document.body.style.overflow = '';
       lenis.start();
+
+      // Restore focus to the element that opened the modal
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+        previouslyFocusedElement = null;
+      }
     }
+
+    // Focus trap — keep Tab cycling within the modal
+    modal.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = modal.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
 
     // Open on showcase click
     document.querySelectorAll('.project-showcase').forEach(section => {
