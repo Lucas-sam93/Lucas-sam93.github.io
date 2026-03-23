@@ -1957,7 +1957,6 @@
 
     // ── Full-Page Project Modal ──
     const modal = document.getElementById('project-modal');
-    const modalImg = document.getElementById('modal-img');
     const modalLabel = document.getElementById('modal-label');
     const modalTitle = document.getElementById('modal-title');
     const modalSubtitle = document.getElementById('modal-subtitle');
@@ -1996,8 +1995,6 @@
     function openModal(section) {
       previouslyFocusedElement = document.activeElement;
 
-      modalImg.src = section.dataset.img;
-      modalImg.alt = section.dataset.title;
       modalLabel.textContent = section.dataset.label;
       modalTitle.textContent = section.dataset.title;
       modalSubtitle.textContent = section.dataset.subtitle;

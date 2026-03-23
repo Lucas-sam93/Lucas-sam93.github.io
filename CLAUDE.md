@@ -21,7 +21,7 @@
 
 ### Color Themes
 - Dual theme (dark/light) via CSS custom properties on `[data-theme]`
-- Auto-detected from `prefers-color-scheme`, no manual toggle
+- Auto-detected from `prefers-color-scheme`; manual toggle button in nav (desktop) and mobile menu persists choice via `localStorage`
 - Accent warm: `#ccbb87` (dark) / `#8a7a4a` (light) — gold tone for emphasis
 - Navigation uses `mix-blend-mode: difference` with `#fff` text
 
