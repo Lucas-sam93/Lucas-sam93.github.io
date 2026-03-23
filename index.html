@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Sam — Data Analyst</title>
-  <meta name="description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems with AI, data visualization, and interactive dashboards. Projects include JD-Match, Gender Pay Gap Analysis, and Singapore Parliamentary Elections 1955–2025." />
+  <meta name="description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems with AI, data visualization, and interactive dashboards." />
   <meta name="author" content="Lucas Sam" />
   <meta name="keywords" content="Lucas Sam, Data Analyst, SQL, Tableau, Data Visualization, Data Storytelling, Prompt Engineering, Portfolio, Singapore Elections, Parliamentary Elections" />
   <meta property="og:title" content="Lucas Sam — Data Analyst" />
@@ -14,485 +14,2041 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lucas Sam — Data Analyst" />
   <meta name="twitter:description" content="Portfolio of Lucas Sam — Data Analyst. Building tools that solve real problems." />
+  <meta property="og:image" content="https://lucas-sam93.github.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Lucas Sam — Data Analyst Portfolio" />
+  <meta name="twitter:image" content="https://lucas-sam93.github.io/og-image.png" />
   <link rel="canonical" href="https://lucas-sam93.github.io" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0a'/%3E%3Ctext x='4' y='24' font-family='system-ui,sans-serif' font-size='22' font-weight='700' fill='%23ccbb87'%3ELS%3C/text%3E%3C/svg%3E" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lucas Sam — Data Analyst",
+    "url": "https://lucas-sam93.github.io",
+    "author": {
+      "@type": "Person",
+      "name": "Lucas Sam",
+      "jobTitle": "Data Analyst",
+      "url": "https://lucas-sam93.github.io",
+      "sameAs": [
+        "https://github.com/Lucas-sam93",
+        "https://www.linkedin.com/in/lucas-sam-54aba3106"
+      ]
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Koulen&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <style>
-    /* Fade-in animation */
-    .fade-in {
+    /* ── Theme Variables ── */
+    :root {
+      --transition-theme: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #161616;
+      --bg-card-hover: #1a1a1a;
+      --border-color: #222222;
+      --border-hover: #333333;
+      --text-primary: #e8e8e8;
+      --text-secondary: #888888;
+      --text-muted: #737373;
+      --text-accent: #cccccc;
+      --accent-warm: #ccbb87;
+      --accent-warm-dim: rgba(204, 187, 135, 0.4);
+      --cursor-color: #e8e8e8;
+      --particle-color: 232, 232, 232;
+      --grain-opacity: 0.05;
+      --tag-bg: #1e1e1e;
+      --tag-text: #999999;
+      --badge-in-progress-bg: #1a1a0a;
+      --badge-in-progress-border: #3a3a1a;
+      --badge-in-progress-text: #c4b55a;
+      --badge-capstone-bg: #0a1a2a;
+      --badge-capstone-border: #1a2a3a;
+      --badge-capstone-text: #5a8abf;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #fafafa;
+      --bg-secondary: #f0f0f0;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8f8f8;
+      --border-color: #e0e0e0;
+      --border-hover: #cccccc;
+      --text-primary: #1a1a1a;
+      --text-secondary: #666666;
+      --text-muted: #717171;
+      --text-accent: #444444;
+      --accent-warm: #8a7a4a;
+      --accent-warm-dim: rgba(138, 122, 74, 0.4);
+      --cursor-color: #1a1a1a;
+      --particle-color: 30, 30, 30;
+      --grain-opacity: 0.03;
+      --tag-bg: #f0f0f0;
+      --tag-text: #666666;
+      --badge-in-progress-bg: #fefce8;
+      --badge-in-progress-border: #e5e2a0;
+      --badge-in-progress-text: #92810a;
+      --badge-capstone-bg: #eff6ff;
+      --badge-capstone-border: #bfdbfe;
+      --badge-capstone-text: #1e40af;
+    }
+
+    /* ── Reset & Base ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background var(--transition-theme), color var(--transition-theme);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    a { color: inherit; text-decoration: none; cursor: none; }
+    button { cursor: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Skip to Content ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 9999;
+      padding: 0.75rem 1.5rem;
+      background: var(--text-primary);
+      color: var(--bg-primary);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: 0 0 0.5rem 0.5rem;
+      text-decoration: none;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ── Focus States ── */
+    :focus-visible {
+      outline: 2px solid var(--accent-warm);
+      outline-offset: 3px;
+    }
+
+    .nav-link:focus-visible,
+    .nav-resume:focus-visible,
+    .nav-logo:focus-visible {
+      outline-color: #fff;
+    }
+
+    .modal-back:focus-visible,
+    .modal-link:focus-visible {
+      outline-color: var(--accent-warm);
+    }
+
+    /* ── Scroll Progress Bar ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--accent-warm);
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    /* ── Custom Cursor ── */
+    .cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--cursor-color);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                  height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                  background 0.3s ease,
+                  opacity 0.3s ease;
+      mix-blend-mode: difference;
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .fade-in.visible {
+
+    .cursor.visible {
       opacity: 1;
-      transform: translateY(0);
     }
-    /* Scroll indicator */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+
+    .cursor.hovering {
+      width: 36px;
+      height: 36px;
+      background: rgba(var(--particle-color), 0.1);
+      border: 1px solid rgba(var(--particle-color), 0.3);
     }
-    .scroll-indicator {
-      animation: float 2.5s ease-in-out infinite;
+
+    /* ── Grain Overlay ── */
+    .grain {
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: var(--grain-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      animation: grainShift 8s steps(2) infinite;
     }
-    /* Navbar on scroll */
-    .nav-scrolled {
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    @keyframes grainShift {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-3%, -3%); }
+      100% { transform: translate(0, 0); }
     }
-    /* Project image hover zoom */
-    .project-img {
-      transition: transform 0.3s ease;
+
+    /* ── Navigation — blend-mode difference ── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      mix-blend-mode: difference;
     }
-    .project-img:hover {
-      transform: scale(1.05);
+
+    .nav-logo {
+      font-family: 'Koulen', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #fff;
     }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .nav-link {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+    .nav-resume {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: border-color 0.3s ease;
+    }
+
+    .nav-resume:hover { border-color: #fff; }
+
     /* Mobile menu */
-    .mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
     }
-    .mobile-menu.open {
-      transform: translateX(0);
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-primary);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
     }
-    /* Reduced motion */
+
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-overlay a {
+      font-family: 'Koulen', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-overlay a:hover { color: var(--text-primary); }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: block; }
+      .nav { padding: 1.25rem 1.5rem; }
+    }
+
+    /* ── Hero Canvas ── */
+    .hero-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Hero — massive, cinematic, sparse ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30vh;
+      background: linear-gradient(to bottom, transparent, var(--bg-primary));
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero-name {
+      font-family: 'Koulen', sans-serif;
+      font-size: 150px;
+      font-weight: 400;
+      line-height: 0.83;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      will-change: transform, opacity, filter;
+      opacity: 0;
+      filter: blur(20px);
+      transition: opacity 1.2s ease, filter 1.2s ease, color var(--transition-theme);
+    }
+
+    .hero-name.revealed {
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .hero-title {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-top: 2rem;
+      will-change: transform, opacity, filter;
+      opacity: 0;
+      filter: blur(10px);
+      transition: opacity 1s ease 0.5s, filter 1s ease 0.5s, color var(--transition-theme);
+    }
+
+    .hero-title.revealed {
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    @media (max-width: 1500px) { .hero-name { font-size: 120px; } }
+    @media (max-width: 1200px) { .hero-name { font-size: 100px; } }
+    @media (max-width: 810px)  { .hero-name { font-size: 76px; } }
+    @media (max-width: 480px)  { .hero-name { font-size: 48px; } .hero-title { font-size: 0.75rem; letter-spacing: 0.15em; } }
+
+    /* ── Projects — Sticky Scroll Showcase ── */
+    .projects-anchor {
+      position: relative;
+    }
+
+    .projects-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 6rem 2rem 3rem;
+      transition: color var(--transition-theme);
+    }
+
+    .project-showcase {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--bg-primary);
+      transition: background var(--transition-theme);
+      will-change: transform;
+      cursor: none;
+    }
+
+
+    .project-showcase-inner {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 6rem;
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    .project-showcase.reverse .project-showcase-inner {
+      flex-direction: row-reverse;
+    }
+
+    .project-image-wrap {
+      flex: 0 0 65%;
+      height: 65vh;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .project-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      aspect-ratio: 16 / 9;
+      will-change: transform, filter;
+      filter: grayscale(40%) brightness(0.85);
+      transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                  filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .project-showcase:hover .project-image-wrap img {
+      transform: scale(1.03);
+      filter: grayscale(0%) brightness(1);
+    }
+
+    .project-text {
+      flex: 1;
+    }
+
+    .project-number {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--accent-warm);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 1rem;
+      transition: color var(--transition-theme);
+    }
+
+    .project-badges {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      transition: color var(--transition-theme);
+    }
+
+    .project-name {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      will-change: transform;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 1.5rem;
+      transition: color var(--transition-theme);
+    }
+
+    .project-view {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent-warm);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-view svg {
+      transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .project-showcase:hover .project-view {
+      color: var(--text-primary);
+    }
+
+    .project-showcase:hover .project-view svg {
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 768px) {
+      .project-showcase {
+        height: auto;
+        min-height: auto;
+        padding: 3rem 0;
+      }
+      .project-showcase-inner {
+        flex-direction: column !important;
+        padding: 0 1.5rem;
+        gap: 2rem;
+      }
+      .project-image-wrap {
+        flex: none;
+        width: 100%;
+        height: 40vh;
+      }
+      .project-text {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    /* ── Full-Page Project Modal ── */
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: var(--bg-primary);
+      overflow-y: auto;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+                  background var(--transition-theme);
+      pointer-events: none;
+    }
+
+    .project-modal.open {
+      clip-path: inset(0 0 0 0);
+      pointer-events: auto;
+    }
+
+    .modal-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, var(--bg-primary) 60%, transparent);
+    }
+
+    .modal-back {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+      cursor: none;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+    }
+
+    .modal-back:hover { color: var(--text-primary); }
+    .modal-back svg { width: 18px; height: 18px; }
+
+    .modal-hero-img {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 0.75rem;
+      display: block;
+      padding: 0 3rem;
+    }
+
+    .modal-body {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 3rem 6rem;
+    }
+
+    .modal-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-title {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-desc {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-section-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      transition: color var(--transition-theme);
+    }
+
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .modal-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .modal-link:hover {
+      border-color: var(--text-secondary);
+      background: rgba(var(--particle-color), 0.05);
+    }
+
+    .modal-link svg { width: 16px; height: 16px; }
+
+    /* Case study sections */
+    .case-study-section {
+      margin-bottom: 3rem;
+    }
+
+    .case-study-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .case-study-heading {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 400;
+      line-height: 0.95;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: border-color var(--transition-theme);
+    }
+
+    .case-study-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      transition: color var(--transition-theme);
+    }
+
+    .case-study-text + .case-study-text {
+      margin-top: 1rem;
+    }
+
+    .case-study-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .case-study-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+      transition: color var(--transition-theme);
+    }
+
+    .case-study-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      transition: background var(--transition-theme);
+    }
+
+    .case-study-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-color);
+      margin: 3rem 0;
+      transition: background var(--transition-theme);
+    }
+
+    @media (max-width: 768px) {
+      .modal-nav { padding: 1.25rem 1.5rem; }
+      .modal-hero-img { padding: 0 1.5rem; border-radius: 0.5rem; }
+      .modal-body { padding: 2.5rem 1.5rem 4rem; }
+    }
+
+    /* ── Shared Elements ── */
+    .badge {
+      display: inline-flex;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      padding: 0.3rem 0.65rem;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge-in-progress {
+      background: var(--badge-in-progress-bg);
+      border: 1px solid var(--badge-in-progress-border);
+      color: var(--badge-in-progress-text);
+    }
+
+    .badge-capstone {
+      background: var(--badge-capstone-bg);
+      border: 1px solid var(--badge-capstone-border);
+      color: var(--badge-capstone-text);
+    }
+
+    .tag {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--tag-text);
+      background: var(--tag-bg);
+      padding: 0.3rem 0.65rem;
+      border-radius: 100px;
+      transition: background var(--transition-theme), color var(--transition-theme);
+    }
+
+    /* ── Section Shared ── */
+    .section {
+      padding: 8rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 0.83;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      transition: color var(--transition-theme);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    /* ── About Section ── */
+    .about-content {
+      max-width: 680px;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      transition: color var(--transition-theme);
+    }
+
+    /* ── Contact Section ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 640px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                  box-shadow 0.4s ease, background var(--transition-theme);
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card svg {
+      width: 28px;
+      height: 28px;
+      color: var(--text-primary);
+      margin: 0 auto 0.75rem;
+    }
+
+    .contact-card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: color var(--transition-theme);
+    }
+
+    /* ── Availability Status ── */
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(74, 222, 128, 0); }
+    }
+
+    @media (max-width: 768px) {
+      .nav .nav-status { display: none; }
+    }
+
+    /* ── Footer CTA ── */
+    .footer-cta {
+      padding: 10rem 3rem 4rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-cta-heading {
+      font-family: 'Koulen', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 400;
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .footer-cta-heading .accent {
+      color: var(--accent-warm);
+    }
+
+    .footer-cta-email {
+      font-family: 'Roboto Mono', monospace;
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 100px;
+      transition: border-color 0.3s ease, color 0.3s ease;
+      margin-bottom: 3rem;
+    }
+
+    .footer-cta-email:hover {
+      border-color: var(--accent-warm);
+      color: var(--text-primary);
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-social-link {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .footer-social-link:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-social-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-bottom {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-color);
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: border-color var(--transition-theme);
+    }
+
+    .footer-bottom span {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      transition: color var(--transition-theme);
+    }
+
+    .footer-bottom .nav-status {
+      color: var(--text-muted);
+    }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      /* Sections */
+      .section {
+        padding: 5rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+      }
+
+      /* Project showcase — name scales down */
+      .project-name {
+        font-size: clamp(1.4rem, 5vw, 1.8rem);
+      }
+
+      /* Remove image filters (no hover on mobile) */
+      .project-image-wrap img {
+        filter: none;
+      }
+
+      /* Modal — tighter typography */
+      .modal-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+
+      .case-study-heading {
+        font-size: 0.85rem;
+      }
+
+      .case-study-text,
+      .case-study-list li {
+        font-size: 0.9rem;
+      }
+
+      /* Footer CTA — compact */
+      .footer-cta {
+        padding: 6rem 1.5rem 2rem;
+      }
+
+      .footer-cta-heading {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .footer-cta-email {
+        font-size: 0.75rem;
+        padding: 0.6rem 1.5rem;
+      }
+
+      .footer-socials {
+        margin-bottom: 2.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1.5rem 0;
+      }
+
+      /* Cursor — hide on mobile */
+      .cursor {
+        display: none;
+      }
+
+      body, a, button {
+        cursor: auto !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-showcase {
+        padding: 2rem 0;
+      }
+
+      .project-showcase-inner {
+        padding: 0 1rem !important;
+        gap: 1.5rem;
+      }
+
+      .project-image-wrap {
+        height: 30vh;
+      }
+
+      .footer-cta {
+        padding: 4rem 1rem 2rem;
+      }
+
+      .footer-bottom span {
+        font-size: 0.6rem;
+      }
+    }
+
+    /* Touch device — hide custom cursor */
+    @media (hover: none) and (pointer: coarse) {
+      .cursor {
+        display: none !important;
+      }
+
+      body, a, button {
+        cursor: auto !important;
+      }
+
+      /* Remove image filters since no hover on touch */
+      .project-image-wrap img {
+        filter: none;
+      }
+    }
+
+    /* ── Reduced Motion ── */
     @media (prefers-reduced-motion: reduce) {
-      .fade-in {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .scroll-indicator {
-        animation: none;
-      }
-      .project-img {
-        transition: none;
-      }
-      .mobile-menu {
-        transition: none;
-      }
       *, *::before, *::after {
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
+      .hero-name, .hero-title {
+        opacity: 1 !important;
+        filter: none !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .project-modal {
+        clip-path: none !important;
+      }
+      .grain { display: none; }
+      .cursor { display: none; }
+      body { cursor: auto; }
+      body a, body button { cursor: auto; }
     }
   </style>
 </head>
-<body class="bg-white text-gray-900 font-sans antialiased">
+<body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
-  <!-- ── Navigation ── -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-      <a href="#" class="text-lg font-bold text-gray-900 tracking-tight">LS</a>
+  <!-- Grain overlay -->
+  <a href="#projects" class="skip-link">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
 
-      <!-- Desktop links -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#projects" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Projects</a>
-        <a href="#about" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">About</a>
-        <a href="#contact" class="text-sm text-gray-500 hover:text-gray-900 transition-colors">Contact</a>
-        <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer"
-           class="text-sm font-medium text-gray-900 border border-gray-300 px-4 py-1.5 rounded-full hover:bg-gray-50 transition-colors">
-          Resume
-        </a>
-      </div>
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
 
-      <!-- Mobile hamburger -->
-      <button id="menu-btn" class="md:hidden text-gray-500 hover:text-gray-900 p-2" aria-label="Open menu">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
-        </svg>
-      </button>
+  <!-- ── Navigation — blend-mode difference ── -->
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-logo" data-cursor-hover>Lucas Sam</a>
+    <span class="nav-status"><span class="status-dot"></span>Available</span>
+
+    <div class="nav-links">
+      <a href="#projects" class="nav-link" data-cursor-hover>Projects</a>
+      <a href="#about" class="nav-link" data-cursor-hover>About</a>
+      <a href="#contact" class="nav-link" data-cursor-hover>Contact</a>
+      <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume" data-cursor-hover>Resume</a>
     </div>
 
-    <!-- Mobile menu overlay -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white flex flex-col items-center justify-center gap-8 md:hidden">
-      <button id="menu-close" class="absolute top-6 right-6 text-gray-400 hover:text-gray-900 p-2" aria-label="Close menu">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-      <a href="#projects" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Projects</a>
-      <a href="#about" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">About</a>
-      <a href="#contact" class="text-2xl text-gray-600 hover:text-gray-900 transition-colors mobile-link">Contact</a>
-      <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer"
-         class="text-xl font-medium text-white bg-gray-900 px-8 py-3 rounded-full hover:bg-gray-800 transition-colors">
-        Resume
-      </a>
-    </div>
+    <button class="nav-hamburger" id="menu-btn" aria-label="Open menu" data-cursor-hover>
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+      </svg>
+    </button>
   </nav>
 
-  <!-- ── Hero ── -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden">
-    <div class="relative z-10 text-center max-w-2xl fade-in">
-      <!-- Avatar -->
-      <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full mx-auto mb-6 border-2 border-gray-200 overflow-hidden bg-gray-50">
-        <img src="Lucas_Headshot.png" alt="Lucas Sam" class="w-full h-full object-cover" />
-      </div>
+  <!-- Mobile menu overlay -->
+  <div class="mobile-overlay" id="mobile-menu">
+    <button class="mobile-close" id="menu-close" aria-label="Close menu" data-cursor-hover>
+      <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="#projects" class="mobile-link" data-cursor-hover>Projects</a>
+    <a href="#about" class="mobile-link" data-cursor-hover>About</a>
+    <a href="#contact" class="mobile-link" data-cursor-hover>Contact</a>
+    <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer" class="mobile-link" data-cursor-hover>Resume</a>
+  </div>
 
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-4 text-gray-900">
-        Lucas Sam
-      </h1>
-      <p class="text-lg sm:text-xl text-gray-500 font-medium mb-6">
-        Data Analyst
-      </p>
-      <p class="text-gray-500 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-        Data analyst who enjoys turning raw data into clear, actionable insights. I work across the full pipeline — from cleaning and exploring datasets to building dashboards and web tools that make the results accessible.
-      </p>
+  <!-- Particle canvas (fixed behind everything) -->
+  <canvas class="hero-canvas" id="particle-canvas"></canvas>
 
-      <!-- Social Links -->
-      <div class="flex items-center justify-center gap-4 mb-6">
-        <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
-           class="text-gray-400 hover:text-gray-900 transition-colors p-3" aria-label="GitHub">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer"
-           class="text-gray-400 hover:text-gray-900 transition-colors p-3" aria-label="LinkedIn">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href="mailto:lucas.sam93@gmail.com"
-           class="text-gray-400 hover:text-gray-900 transition-colors p-3" aria-label="Email">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Resume CTA -->
-      <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-semibold rounded-full transition-colors">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
-        </svg>
-        View Resume
-      </a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-10 scroll-indicator">
-      <a href="#projects" class="text-gray-300 hover:text-gray-500 transition-colors" aria-label="Scroll to projects">
-        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
-        </svg>
-      </a>
+  <!-- ── Hero — massive, cinematic, sparse ── -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-name" id="hero-name">Lucas<br/>Sam</h1>
+      <p class="hero-title" id="hero-title">Data Analyst — Turning messy data into clear decisions</p>
     </div>
   </section>
 
-  <!-- ── Projects ── -->
-  <section id="projects" class="bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-      <h2 class="text-3xl font-semibold tracking-tight mb-4 fade-in">Projects</h2>
-      <p class="text-gray-500 mb-12 fade-in">A selection of things I've built — web apps, data tools, and interactive dashboards.</p>
+  <!-- ── Projects — sticky scroll showcases ── -->
+  <div class="projects-anchor" id="projects">
+    <p class="projects-label">Selected Work</p>
 
-      <!-- ── Featured Project ── -->
-      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 mb-8 overflow-hidden hover:shadow-md hover:-translate-y-1 transition-all fade-in">
-        <div class="grid grid-cols-1 md:grid-cols-2">
-          <!-- Screenshot -->
-          <div class="bg-gray-100 h-64 sm:h-72 md:h-auto overflow-hidden">
-            <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization from Heartbeat or Noise capstone project" class="w-full h-full object-cover project-img" />
+    <!-- 1. Heartbeat or Noise -->
+    <section class="project-showcase" data-cursor-hover
+      data-img="capstone-ecg-screenshot.png"
+      data-title="Heartbeat or Noise?"
+      data-subtitle="Evaluating Consumer Wearables as Cardiac Screening Proxies"
+      data-label="Capstone · In Progress"
+      data-desc="Cardiovascular disease causes 30.5% of all deaths in Singapore — yet 49% of residents haven't had a health checkup in the past year. Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a low-barrier screening proxy."
+      data-tags="Python,scikit-learn,Pandas,WFDB,Jupyter"
+      data-source="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise">
+      <div class="project-showcase-inner">
+        <div class="project-image-wrap">
+          <img src="capstone-ecg-screenshot.png" alt="ECG waveform visualization" loading="eager" />
+        </div>
+        <div class="project-text">
+          <span class="project-number">01</span>
+          <div class="project-badges">
+            <span class="badge badge-in-progress">In Progress</span>
+            <span class="badge badge-capstone">Capstone</span>
           </div>
-          <!-- Content -->
-          <div class="p-6 sm:p-8 flex flex-col justify-center">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full">In Progress</span>
-              <span class="text-xs font-semibold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-1 rounded-full">Capstone</span>
-            </div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-1">Heartbeat or Noise?</h3>
-            <p class="text-sm text-gray-400 font-medium mb-4">Evaluating Consumer Wearables as Cardiac Screening Proxies</p>
-            <p class="text-gray-500 text-sm leading-relaxed mb-3 flex-1">
-              Cardiovascular disease causes 30.5% of all deaths in Singapore — yet 49% of residents haven't had a health checkup in the past year. Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a low-barrier screening proxy.
-            </p>
-            <p class="text-gray-400 text-xs italic leading-relaxed mb-5">
-              Extracted 3.78M Apple Watch records, cleaning ECG signals at 300Hz, building binary classifiers optimized for screening sensitivity.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Python</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">scikit-learn</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Pandas</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">WFDB</span>
-              <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Jupyter</span>
-            </div>
-            <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-              <a href="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise" target="_blank" rel="noopener noreferrer"
-                 class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                Source
-              </a>
-            </div>
-          </div>
+          <p class="project-label">Machine Learning · Healthcare</p>
+          <h3 class="project-name">Heartbeat or Noise?</h3>
+          <p class="project-desc">Can a $300 smartwatch detect heart disease as reliably as a $3,000 clinical ECG? Tested across 8,500+ recordings with 84.4% sensitivity and 0.91 AUROC.</p>
+          <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
+    </section>
 
-      <!-- ── Project Grid ── -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- W.O.W. — Worth-Or-What? -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all fade-in">
-          <!-- Screenshot -->
-          <div class="rounded-xl bg-gray-100 h-40 sm:h-52 mb-4 overflow-hidden">
-            <img src="wow-screenshot.png" alt="W.O.W. Worth-Or-What HDB resale price prediction app" class="w-full h-full object-cover object-top project-img" />
-          </div>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-xs font-semibold text-green-700 bg-green-50 border border-green-200 px-2.5 py-1 rounded-full">Completed</span>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">W.O.W. — Worth-Or-What?</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2 flex-1">
-            Singapore's HDB resale market lacks pricing transparency. Built a web app that predicts resale prices with ±10% confidence ranges and recommends towns based on lifestyle clustering — trained on 270,000+ transactions.
-          </p>
-          <p class="text-gray-400 text-xs italic leading-relaxed mb-5">
-            Group project — led as Product Manager, defining scope, coordinating the EDA and modelling teams, and overseeing end-to-end delivery.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Python</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Flask</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">LightGBM</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">scikit-learn</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">K-Means</span>
-          </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-            <a href="https://github.com/Lucas-sam93/HDB-data-sprint" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              Source
-            </a>
-          </div>
+    <!-- 2. JD-Match -->
+    <section class="project-showcase reverse" data-cursor-hover
+      data-img="jd-match-screenshot.png"
+      data-title="JD-Match"
+      data-subtitle="AI Resume-to-Job Alignment Tool"
+      data-label="Web App · AI"
+      data-desc="Most job seekers don't know why their resumes get rejected by ATS filters. Built a tool that scores resume-to-job alignment across 15 categories, flags missing keywords, and generates rewritten bullet points — turning a manual, guesswork-heavy process into a one-click analysis."
+      data-tags="React,Tailwind CSS,Node.js"
+      data-live="https://jd-match.vercel.app"
+      data-source="https://github.com/Lucas-sam93/JD-Match">
+      <div class="project-showcase-inner">
+        <div class="project-image-wrap">
+          <img src="jd-match-screenshot.png" alt="JD-Match app interface" loading="lazy" />
         </div>
-
-        <!-- JD-Match -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all fade-in">
-          <!-- Screenshot -->
-          <div class="rounded-xl bg-gray-100 h-40 sm:h-52 mb-4 overflow-hidden">
-            <img src="jd-match-screenshot.png" alt="JD-Match app interface" class="w-full h-full object-cover object-top project-img" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">JD-Match</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2 flex-1">
-            Most job seekers don't know why their resumes get rejected by ATS filters. Built a tool that scores resume-to-job alignment across 15 categories, flags missing keywords, and generates rewritten bullet points — turning a manual, guesswork-heavy process into a one-click analysis.
-          </p>
-          <p class="text-gray-400 text-xs italic leading-relaxed mb-5">
-            Built full-stack app: React frontend, Node.js API, AI-powered keyword extraction and bullet rewriting.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">React</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Tailwind CSS</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Node.js</span>
-          </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-            <a href="https://jd-match.vercel.app" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-              </svg>
-              Live Demo
-            </a>
-            <a href="https://github.com/Lucas-sam93/JD-Match" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5 py-2 px-3 rounded-lg">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              Source
-            </a>
-          </div>
+        <div class="project-text">
+          <span class="project-number">02</span>
+          <p class="project-label">Web App · AI</p>
+          <h3 class="project-name">JD-Match</h3>
+          <p class="project-desc">Why do qualified resumes get rejected by ATS filters? Built a tool that scores alignment across 15 categories and rewrites weak bullet points in one click.</p>
+          <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
-
-        <!-- Singapore Parliamentary Elections -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all fade-in">
-          <!-- Screenshot -->
-          <div class="rounded-xl bg-gray-100 h-40 sm:h-52 mb-4 overflow-hidden">
-            <img src="singapore-elections-screenshot.png" alt="Singapore Parliamentary Elections dashboard" class="w-full h-full object-cover object-top project-img" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Singapore Parliamentary Elections 1955–2025</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2 flex-1">
-            Singapore's ruling party won 90.6% of seats with just 65.6% of the vote. Built a multi-dashboard Tableau story to quantify this votes-to-seats paradox across 70 years of elections and track the opposition's decades-long rise from 0 to 10 seats.
-          </p>
-          <p class="text-gray-400 text-xs italic leading-relaxed mb-5">
-            Collected 70 years of election data, designed multi-dashboard Tableau story with votes-to-seats paradox narrative.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Tableau</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Data Visualization</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Data Storytelling</span>
-          </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-            <a href="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-              </svg>
-              Live Dashboard
-            </a>
-            <a href="https://github.com/Lucas-sam93/singapore-parliamentary-elections" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5 py-2 px-3 rounded-lg">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              Source
-            </a>
-          </div>
-        </div>
-
-        <!-- Gender Pay Gap Analysis -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col hover:shadow-md hover:-translate-y-1 transition-all fade-in">
-          <!-- Screenshot -->
-          <div class="rounded-xl bg-gray-100 h-40 sm:h-52 mb-4 overflow-hidden">
-            <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap Analysis dashboard" class="w-full h-full object-cover object-top project-img" />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Gender Pay Gap Analysis</h3>
-          <p class="text-gray-500 text-sm leading-relaxed mb-2 flex-1">
-            Queried 10,000+ UK companies in BigQuery and found that women's representation drops 13 percentage points from entry-level to senior roles — a "glass ceiling" effect worst in Finance and nearly absent in Care. Built an interactive dashboard to let users explore the data by sector, year, and company size.
-          </p>
-          <p class="text-gray-400 text-xs italic leading-relaxed mb-5">
-            Queried 10K+ companies in BigQuery, built ETL pipeline, deployed interactive Plotly Dash dashboard.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">SQL</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">BigQuery</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Python</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Plotly</span>
-            <span class="text-xs font-medium text-gray-600 bg-gray-100 px-2.5 py-1 rounded-full">Pandas</span>
-          </div>
-          <div class="flex items-center gap-2 pt-2 border-t border-gray-100">
-            <a href="https://lucas-sam93.github.io/gender-pay-gap-analysis/" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors flex items-center gap-1.5 py-2 px-3 -ml-3 rounded-lg">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-              </svg>
-              Live Dashboard
-            </a>
-            <a href="https://github.com/Lucas-sam93/gender-pay-gap-analysis" target="_blank" rel="noopener noreferrer"
-               class="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors flex items-center gap-1.5 py-2 px-3 rounded-lg">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              Source
-            </a>
-          </div>
-        </div>
-
       </div>
+    </section>
+
+    <!-- 3. Singapore Parliamentary Elections -->
+    <section class="project-showcase" data-cursor-hover
+      data-img="singapore-elections-screenshot.png"
+      data-title="Singapore Parliamentary Elections 1955–2025"
+      data-subtitle="70 Years of Votes vs Seats"
+      data-label="Data Visualization"
+      data-desc="The Workers' Party wins more than half the votes in every seat they contest — yet holds just 9.3% of parliament. Built a 6-dashboard Tableau story tracking 70 years of elections to show why the quiet revolution is already happening, hidden by a structural bottleneck."
+      data-tags="Tableau,Data Visualization,Data Storytelling"
+      data-live="https://public.tableau.com/app/profile/lucas.sam4725/viz/SingaporeParliamentaryElections19552025/D1-TheParadox"
+      data-source="https://github.com/Lucas-sam93/SG-Elections-Tableau">
+      <div class="project-showcase-inner">
+        <div class="project-image-wrap">
+          <img src="singapore-elections-screenshot.png" alt="Singapore Elections dashboard" loading="lazy" />
+        </div>
+        <div class="project-text">
+          <span class="project-number">03</span>
+          <p class="project-label">Data Visualization</p>
+          <h3 class="project-name">SG Elections 1955–2025</h3>
+          <p class="project-desc">The Workers' Party averages 50.5% of every vote cast against them — yet holds just 9.3% of seats. Visualized 70 years of data to reveal why Singapore's quiet revolution is hidden in plain sight.</p>
+          <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Gender Pay Gap Analysis -->
+    <section class="project-showcase reverse" data-cursor-hover
+      data-img="gender-pay-gap-screenshot.png"
+      data-title="Gender Pay Gap Analysis"
+      data-subtitle="UK Companies Glass Ceiling Explorer"
+      data-label="SQL · Dashboard"
+      data-desc="Queried 10,000+ UK companies in BigQuery and found that women's representation drops 13 percentage points from entry-level to senior roles — a 'glass ceiling' effect worst in Finance and nearly absent in Care. Built an interactive dashboard to let users explore the data by sector, year, and company size."
+      data-tags="SQL,BigQuery,Python,Plotly,Pandas"
+      data-live="https://lucas-sam93.github.io/gender-pay-gap-analysis/"
+      data-source="https://github.com/Lucas-sam93/gender-pay-gap-analysis">
+      <div class="project-showcase-inner">
+        <div class="project-image-wrap">
+          <img src="gender-pay-gap-screenshot.png" alt="Gender Pay Gap dashboard" loading="lazy" />
+        </div>
+        <div class="project-text">
+          <span class="project-number">04</span>
+          <p class="project-label">SQL · Dashboard</p>
+          <h3 class="project-name">Gender Pay Gap</h3>
+          <p class="project-desc">Where does the glass ceiling hit hardest? Queried 10,000+ UK companies and found a 13-point drop in women's representation from entry to senior roles.</p>
+          <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── Full-Page Project Modal ── -->
+  <aside class="project-modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-nav">
+      <button class="modal-back" id="modal-back" data-cursor-hover aria-label="Go back">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/></svg>
+        Back
+      </button>
     </div>
-  </section>
+    <img class="modal-hero-img" id="modal-img" src="" alt="" />
+    <div class="modal-body">
+      <p class="modal-label" id="modal-label"></p>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-subtitle" id="modal-subtitle"></p>
+
+      <div class="case-study-divider"></div>
+
+      <!-- Case study sections populated by JS -->
+      <div id="modal-case-study"></div>
+
+      <div class="case-study-divider"></div>
+
+      <p class="modal-section-label">Tech Stack</p>
+      <div class="modal-tags" id="modal-tags"></div>
+      <div class="modal-links" id="modal-links"></div>
+    </div>
+  </aside>
 
   <!-- ── About Me ── -->
-  <section id="about" class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-    <h2 class="text-3xl font-semibold tracking-tight mb-12 fade-in">About Me</h2>
-
-    <div class="max-w-3xl space-y-5 fade-in">
-      <p class="text-gray-600 leading-relaxed">
+  <section id="about" class="section">
+    <h2 class="section-title reveal">About Me</h2>
+    <div class="about-content">
+      <p class="reveal">
         I started my career in fitness, spending 4+ years as a personal trainer where I tracked client metrics,
         built data-driven training programs, and discovered that the part I enjoyed most was the analysis itself
         — identifying trends, measuring outcomes, and translating numbers into actionable plans.
       </p>
-      <p class="text-gray-600 leading-relaxed">
+      <p class="reveal">
         That realization led me to pursue data analytics formally. I completed the Google Data Analytics
         Professional Certificate and General Assembly's Data Analytics bootcamp, where I deepened my skills in
         SQL, Tableau, and exploratory data analysis. I then started building tools to put those skills into
         practice — from an AI-powered resume optimizer to interactive dashboards exploring real-world datasets.
       </p>
-      <p class="text-gray-600 leading-relaxed">
+      <p class="reveal">
         I'm now looking for my first data analyst role where I can combine my analytical foundation,
         communication skills from working with non-technical clients, and a builder's mindset for creating
-        tools that make data accessible.
+        tools that make data accessible. I'm drawn to problems where data is messy, stakeholders are skeptical,
+        and the right visualization can change someone's mind.
       </p>
     </div>
   </section>
 
   <!-- ── Contact ── -->
-  <section id="contact" class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32">
-    <h2 class="text-3xl font-semibold tracking-tight mb-4 fade-in">Get in Touch</h2>
-    <p class="text-gray-500 mb-12 max-w-xl fade-in">
+  <section id="contact" class="section">
+    <h2 class="section-title reveal">Get in Touch</h2>
+    <p class="section-subtitle reveal">
       I'm always open to new opportunities, collaborations, or just a conversation about data and technology.
     </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl fade-in">
-      <!-- Email -->
-      <a href="mailto:lucas.sam93@gmail.com"
-         class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow group">
-        <svg class="w-8 h-8 mx-auto mb-3 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+    <div class="contact-grid">
+      <a href="mailto:lucas.sam93@gmail.com" class="contact-card reveal" data-cursor-hover>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
         </svg>
-        <p class="text-sm font-semibold text-gray-900 mb-1">Email</p>
-        <p class="text-xs text-gray-500">lucas.sam93@gmail.com</p>
+        <p class="contact-card-title">Email</p>
+        <p class="contact-card-sub">lucas.sam93@gmail.com</p>
       </a>
-
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer"
-         class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow group">
-        <svg class="w-8 h-8 mx-auto mb-3 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+      <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer" class="contact-card reveal" data-cursor-hover>
+        <svg fill="currentColor" viewBox="0 0 24 24">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
-        <p class="text-sm font-semibold text-gray-900 mb-1">LinkedIn</p>
-        <p class="text-xs text-gray-500">Connect with me</p>
+        <p class="contact-card-title">LinkedIn</p>
+        <p class="contact-card-sub">Connect with me</p>
       </a>
-
-      <!-- GitHub -->
-      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer"
-         class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 text-center hover:shadow-md transition-shadow group">
-        <svg class="w-8 h-8 mx-auto mb-3 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="contact-card reveal" data-cursor-hover>
+        <svg fill="currentColor" viewBox="0 0 24 24">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
         </svg>
-        <p class="text-sm font-semibold text-gray-900 mb-1">GitHub</p>
-        <p class="text-xs text-gray-500">View my repos</p>
+        <p class="contact-card-title">GitHub</p>
+        <p class="contact-card-sub">View my repos</p>
       </a>
     </div>
   </section>
 
   <!-- ── Footer ── -->
-  <footer class="border-t border-gray-100 py-10 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="text-sm text-gray-400">&copy; 2026 Lucas Sam. Built with Tailwind CSS.</p>
+  <footer class="footer-cta">
+    <h2 class="footer-cta-heading">Let's <span class="accent">Work</span><br/>Together</h2>
+    <a href="mailto:lucas.sam93@gmail.com" class="footer-cta-email" data-cursor-hover>lucas.sam93@gmail.com</a>
+    <div class="footer-socials">
+      <a href="https://github.com/Lucas-sam93" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/lucas-sam-54aba3106" target="_blank" rel="noopener noreferrer" class="footer-social-link" data-cursor-hover aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="mailto:lucas.sam93@gmail.com" class="footer-social-link" data-cursor-hover aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Lucas Sam</span>
+      <span class="nav-status"><span class="status-dot"></span>Available for Work</span>
     </div>
   </footer>
 
-  <!-- ── Scripts ── -->
-  <script>
-    // Intersection Observer for fade-in animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  <!-- ── Libraries ── -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('nav-scrolled', window.scrollY > 50);
+  <script>
+    // ── Smooth Scroll (Lenis) ──
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      prevent: (node) => node.closest('.project-modal'),
     });
 
-    // Mobile menu
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Sync Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+
+    // Anchor links with smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: 0 });
+        }
+      });
+    });
+
+    // ── Custom Cursor ──
+    const cursor = document.getElementById('cursor');
+    let cursorX = 0, cursorY = 0;
+    let currentX = 0, currentY = 0;
+    let cursorVisible = false;
+
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (!isTouchDevice) {
+      document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+        if (!cursorVisible) {
+          cursorVisible = true;
+          cursor.classList.add('visible');
+        }
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.remove('visible');
+        cursorVisible = false;
+      });
+
+      document.addEventListener('mouseenter', () => {
+        cursor.classList.add('visible');
+        cursorVisible = true;
+      });
+
+      document.querySelectorAll('[data-cursor-hover]').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+      });
+
+      function updateCursor() {
+        currentX += (cursorX - currentX) * 0.15;
+        currentY += (cursorY - currentY) * 0.15;
+        cursor.style.left = currentX + 'px';
+        cursor.style.top = currentY + 'px';
+        requestAnimationFrame(updateCursor);
+      }
+      updateCursor();
+    } else {
+      document.body.style.cursor = 'auto';
+      document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'auto');
+      cursor.style.display = 'none';
+    }
+
+    // ── Particle Canvas ──
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouseX = -1000, mouseY = -1000;
+    const PARTICLE_COUNT = 60;
+    const CONNECTION_DISTANCE = 150;
+    const MOUSE_RADIUS = 120;
+
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.scale(dpr, dpr);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 1.2 + 1.0;
+        this.baseAlpha = Math.random() * 0.3 + 0.15;
+      }
+
+      update() {
+        const dx = this.x - mouseX;
+        const dy = this.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MOUSE_RADIUS && dist > 0) {
+          const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
+          this.vx += (dx / dist) * force * 0.8;
+          this.vy += (dy / dist) * force * 0.8;
+        }
+
+        this.vx *= 0.98;
+        this.vy *= 0.98;
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
+      }
+
+      draw() {
+        const rgb = getComputedStyle(document.documentElement)
+          .getPropertyValue('--particle-color').trim();
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb}, ${this.baseAlpha})`;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function drawConnections() {
+      const rgb = getComputedStyle(document.documentElement)
+        .getPropertyValue('--particle-color').trim();
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECTION_DISTANCE) {
+            const alpha = (1 - dist / CONNECTION_DISTANCE) * 0.12;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(${rgb}, ${alpha})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      drawConnections();
+      requestAnimationFrame(animateParticles);
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    initParticles();
+    animateParticles();
+
+    // ── Hero Blur-to-Sharp Reveal ──
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('hero-name').classList.add('revealed');
+        document.getElementById('hero-title').classList.add('revealed');
+      }, 200);
+    });
+
+    // ── GSAP Setup ──
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ── Scroll Progress Bar ──
+    const scrollProgressBar = document.getElementById('scroll-progress');
+    gsap.to(scrollProgressBar, {
+      width: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.1,
+      },
+    });
+
+    if (!prefersReducedMotion) {
+      // Fade out particle canvas on scroll
+      gsap.to('#particle-canvas', {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '#projects',
+          start: 'top 80%',
+          end: 'top 20%',
+          scrub: true,
+        }
+      });
+
+      // ── Project Showcase — Sticky Pinning + Parallax ──
+      const mm = gsap.matchMedia();
+
+      // Hero parallax exit — fade out and translate up on scroll
+      gsap.to('.hero-content', {
+        y: -100,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+
+      mm.add('(min-width: 769px)', () => {
+        gsap.utils.toArray('.project-showcase').forEach((section) => {
+          // Pin each showcase for one viewport of scroll
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top top',
+            end: '+=80%',
+            pin: true,
+            pinSpacing: true,
+          });
+
+          // Parallax on image during scroll
+          gsap.to(section.querySelector('.project-image-wrap img'), {
+            yPercent: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            }
+          });
+
+          // Image slide in
+          gsap.from(section.querySelector('.project-image-wrap'), {
+            x: section.classList.contains('reverse') ? 60 : -60,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 70%',
+              toggleActions: 'play none none none',
+            }
+          });
+
+          // Staggered text elements entrance
+          const textEl = section.querySelector('.project-text');
+          const textChildren = textEl.querySelectorAll('.project-number, .project-badges, .project-label, .project-name, .project-desc, .project-view');
+          const direction = section.classList.contains('reverse') ? -60 : 60;
+
+          gsap.from(textChildren, {
+            x: direction,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 70%',
+              toggleActions: 'play none none none',
+            }
+          });
+        });
+      });
+
+      mm.add('(max-width: 768px)', () => {
+        // Mobile: simple fade-in, no pinning
+        gsap.utils.toArray('.project-showcase').forEach((section) => {
+          gsap.from(section, {
+            opacity: 0,
+            y: 60,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            }
+          });
+        });
+      });
+
+      // ── GSAP Scroll Reveals (About, Contact, etc.) ──
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        gsap.to(el, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            toggleActions: 'play none none none',
+          },
+        });
+      });
+    } else {
+      // Reduced motion: make all reveals visible immediately
+      gsap.utils.toArray('.reveal').forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+
+    // ── Project Case Study Data ──
+    const projectDetails = {
+      'Heartbeat or Noise?': {
+        question: 'Cardiovascular disease kills 22 Singaporeans daily, yet 49% of residents skip their annual health checkup. Clinical ECG screening requires hospital visits and specialist referrals \u2014 but what if the smartwatch already on your wrist could flag cardiac risk before you ever see a doctor? Can a $300 consumer wearable produce signals reliable enough to serve as a screening proxy for a $3,000 clinical ECG?',
+        data: 'Trained on 8,187 clinical ECG recordings from the Physionet 2017 Challenge, deliberately locked to only 8 HRV features extractable from consumer wearables (RMSSD, SDNN, Mean RR, pNN50, HR Mean/Std, RR Skewness/Kurtosis). Frequency domain features were permanently excluded because wearables can\'t capture them. Validated across two modalities: MIMIC PERform AF (35 ICU subjects with finger PPG + ground-truth ECG) and 4.8 years of personal Apple Watch data (478,000+ heart rate records). All models evaluated with pre-registered thresholds: sensitivity \u2265 80%, specificity \u2265 75%.',
+        story: [
+          'SVM was selected over 3 competitors (Logistic Regression, Random Forest, XGBoost) using a five-criterion natural selection framework. It achieved 84.4% sensitivity, 87.3% specificity, and 0.91 AUROC on held-out clinical data \u2014 with 98.8% atrial fibrillation catch rate (19/19 AF cases detected)',
+          'When the clinical model was applied to MIMIC PPG wearable data, sensitivity held at 100% but specificity collapsed to 12.5%. The AUROC stayed at 0.86, meaning the model could still discriminate \u2014 it just couldn\'t calibrate. Threshold recalibration via Youden\'s J recovered specificity from 12.5% to 93.8%. The modality gap is a calibration problem, not a discrimination failure',
+          'The Apple Watch N=1 case study produced a transparent null result: 5 of 8 features showed large distributional shifts (KS > 0.3) between clinical ECG and consumer PPG signals. The model predicted mostly normal across all time periods, including around a clinically confirmed cardiac event. This was reported honestly \u2014 and motivated the pivot to MIMIC as the primary Layer 2 validation',
+          'Stress testing confirmed the signal is real: bootstrap AUROC 95% CI [0.72, 0.97] across 1,000 resamples, and leave-one-out cross-validation on all 35 MIMIC subjects achieved 78.9% sensitivity with 81.2% specificity \u2014 just 1.1 percentage points below the pre-registered criterion, consistent with N=35 variance',
+        ],
+        verdict: 'The discriminative signal transfers across modalities \u2014 wearables can distinguish normal from abnormal cardiac rhythms. But the calibration gap means a clinical ECG model can\'t be deployed directly on wearable data without domain-adapted thresholds. The project ships as BeatCheck, a FastAPI web app that accepts Apple Health exports and returns risk tiers (Low/Intermediate/High) based on 30-minute windowed analysis. It\'s not a diagnostic tool \u2014 it\'s a screening signal that could prompt the 49% of unchecked Singaporeans to seek formal evaluation before an acute event.',
+      },
+      'JD-Match': {
+        question: 'Why do qualified candidates get rejected before a human ever reads their resume? ATS filters scan for keyword alignment, but job seekers have no visibility into what\'s missing, what\'s weak, or what the system actually scores. Most people rewrite blindly \u2014 guessing which keywords matter and hoping for the best. What if the gap between what a job description demands and what a resume communicates could be made visible in one click?',
+        data: 'Built a full-stack application (React 18 + Vite frontend, Node.js/Express backend, Vercel Serverless in production) powered by Google Gemini 2.5 Flash. The AI engine uses structured JSON prompting with a zero-inference constraint: it only scores skills explicitly stated with supporting evidence, never inferred from context. Document parsing handles both PDF (pdf-parse) and Word (mammoth) uploads client-side, with jsPDF for refined resume export.',
+        story: [
+          'The core innovation is Strict Evidence Matching \u2014 a scoring methodology that distinguishes Exposure (skill mentioned in a list, 25% weight) from Expertise (skill demonstrated with action + outcome, 100% weight). This eliminates the AI hallucination problem where tools claim you have skills based on inference rather than proof',
+          'Every bullet point is subjected to a "So What?" test: does it state a task, or does it quantify an outcome? "Managed software development projects" scores low. "Led 5 sprints as Scrum Master, delivering 200+ features on schedule" scores high. This is the #1 reason resumes fail ATS \u2014 responsibilities without measurable impact',
+          'A hallucination check flags skills the AI suspects from context but can\'t verify from resume text \u2014 preventing false claims that would backfire in interviews. Missing keywords are surfaced alongside 3 AI-generated before/after rewrites with explanations for each improvement',
+          'The refinement workspace puts analysis and live editing side by side: apply rewrites with one click (fuzzy-matched to handle formatting differences), watch highlights appear in real-time, and export the optimized resume as an ATS-compatible PDF without copy-pasting',
+        ],
+        verdict: 'JD-Match turns an invisible, manual guessing game into a transparent feedback loop. Upload a resume, paste a job description, and get an evidence-backed alignment score with actionable rewrites \u2014 all in under 5 seconds. The tool doesn\'t just tell you what\'s missing; it shows you exactly how to fix it and lets you apply the fix without leaving the page.',
+      },
+      'Singapore Parliamentary Elections 1955\u20132025': {
+        question: 'Singapore\'s 2025 election gave PAP 90.6% of seats with 65.6% of votes, while the Workers\' Party\'s 14.9% vote share translated to just 9.3% of seats. Most coverage frames this as opposition weakness. But what does the constituency-level data actually say? If WP is winning more than half the votes in every seat they contest, what\'s really stopping them from scaling \u2014 and is the quiet revolution already happening beneath the headline numbers?',
+        data: 'Manually compiled official Singapore Elections Department records across 32 constituencies and 9 general elections spanning 1955\u20132025. Analysis tracks constituency-level vote shares (not national aggregates), leadership transition impacts, and vote-to-seat disproportionality across 70 years. Built as a 6-dashboard Tableau Public story where each dashboard functions as a narrative chapter \u2014 from The Paradox through The Evidence to The Verdict.',
+        story: [
+          'WP averages 50.5% vote share in every seat they contest (2025) \u2014 they\'re already winning the votes-per-contest battle. PAP\'s vote share declined in 6 of 9 elections since 1984, dropping from 75% (2001) to 65.6% (2025). This is a sustained 40-year trend, not cyclical protest voting',
+          'Where WP built institutional ground presence (Hougang, Aljunied), seats survived 20+ years of leadership changes. Where they relied on one charismatic leader (Potong Pasir under Chiam See Tong), the seat collapsed when he retired \u2014 PAP vote jumped from 50% to 66%. Institutions outlast individuals',
+          'The GRC system is the real barrier, not voter support. Each GRC contest requires a team of 3\u20136 credible candidates. WP doesn\'t have a voter problem \u2014 they have a scaling problem. It\'s an organizational pipeline constraint, not an electoral one',
+          'Strategic recommendation: consolidate 3 strongholds (Hougang, Aljunied, Sengkang) to 70%+ vote share \u2014 the threshold above which PAP recovery becomes historically unlikely. Sengkang is vulnerable at just 52.1% (2020) and needs to be defended before expanding elsewhere',
+          'Combined opposition parties won 47.8% of total votes vs PAP\'s 52.2%. Multi-corner fights hand PAP seats the data says they shouldn\'t win. Non-competition agreements \u2014 one opposition candidate per seat \u2014 could be the force multiplier that closes the gap',
+        ],
+        verdict: 'The quiet revolution isn\'t coming \u2014 it\'s already here, hidden in the constituency numbers. 65.6% PAP votes producing 90.6% of seats isn\'t a mandate; it\'s a system artifact. WP is winning where they compete. The question isn\'t whether voters are ready for change \u2014 the data says they already are. The question is whether the opposition can scale its institutional pipeline fast enough to convert votes into seats before the next electoral cycle.',
+      },
+      'Gender Pay Gap Analysis': {
+        question: 'The UK\'s headline gender pay gap sits at 13% \u2014 nearly 3\u00d7 above the EU\'s mandatory audit threshold. But the headline number hides a deeper structural problem: where exactly does the glass ceiling hit hardest? Which sectors are closest to parity, which are furthest away, and how long will it take at the current rate of change? Most importantly \u2014 is the glass ceiling even cracking?',
+        data: 'Queried 82,935 mandatory employer submissions (10,409 unique companies in 2025) from the UK Government Gender Pay Gap Reporting Service using Google BigQuery. Developed a custom metric \u2014 the Glass Ceiling Index (GCI = female% in bottom quartile minus female% in top quartile) \u2014 to measure structural progression inequality rather than headline pay differences. Analysis spans 8 reporting years (2018\u20132025) across 19 SIC-code sector classifications, with Plotly.js interactive visualizations in a single-file dashboard.',
+        story: [
+          'The Glass Ceiling Index reveals what the headline pay gap obscures: women\'s representation drops 13+ percentage points from entry-level to senior roles across all sectors. Unlike the headline figure, GCI is not confounded by occupational composition \u2014 it directly measures within-firm progression inequality',
+          'The glass ceiling is worst in Finance & Insurance and nearly absent in the Care sector. Sector-level analysis across 19 industries shows structural barriers are concentrated, not universal \u2014 targeted interventions would be more effective than blanket policy',
+          '1,617 employers (15.5% of 2025 reporters) have achieved GCI near-parity (\u00b11%). This is the "1% Club" \u2014 proof that structural equity is achievable at organizational scale, not a theoretical aspiration',
+          'At the current rate of decline (~0.13 percentage points per year), the UK won\'t reach pay parity until 2093. Three modeled policy interventions compress that timeline to 2050 \u2014 a 43-year acceleration. The status quo isn\'t just slow; it\'s generational',
+        ],
+        verdict: 'The 13% headline is a symptom. The Glass Ceiling Index exposes the disease: a structural progression barrier that prevents women from reaching senior pay bands at the same rate they enter the workforce. But the 1% Club proves it\'s solvable \u2014 1,617 companies have already done it. The question is whether the remaining 84.5% will get there in one generation or three. At current trajectory, the answer is three.',
+      },
+    };
+
+    // ── Full-Page Project Modal ──
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalLabel = document.getElementById('modal-label');
+    const modalTitle = document.getElementById('modal-title');
+    const modalSubtitle = document.getElementById('modal-subtitle');
+    const modalCaseStudy = document.getElementById('modal-case-study');
+    const modalTags = document.getElementById('modal-tags');
+    const modalLinks = document.getElementById('modal-links');
+
+    function buildCaseStudyHTML(details) {
+      if (!details) return '';
+
+      const listToHTML = (items) =>
+        `<ul class="case-study-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+
+      return `
+        <div class="case-study-section">
+          <h3 class="case-study-heading">The Question</h3>
+          <p class="case-study-text">${details.question}</p>
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">The Data</h3>
+          <p class="case-study-text">${details.data}</p>
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">The Story</h3>
+          ${listToHTML(details.story)}
+        </div>
+        <div class="case-study-section">
+          <h3 class="case-study-heading">The Verdict</h3>
+          <p class="case-study-text">${details.verdict}</p>
+        </div>
+      `;
+    }
+
+    let previouslyFocusedElement = null;
+
+    function openModal(section) {
+      previouslyFocusedElement = document.activeElement;
+
+      modalImg.src = section.dataset.img;
+      modalImg.alt = section.dataset.title;
+      modalLabel.textContent = section.dataset.label;
+      modalTitle.textContent = section.dataset.title;
+      modalSubtitle.textContent = section.dataset.subtitle;
+
+      // Case study content
+      const details = projectDetails[section.dataset.title];
+      modalCaseStudy.innerHTML = buildCaseStudyHTML(details);
+
+      // Tags
+      modalTags.innerHTML = '';
+      section.dataset.tags.split(',').forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'tag';
+        span.textContent = tag.trim();
+        modalTags.appendChild(span);
+      });
+
+      // Links
+      modalLinks.innerHTML = '';
+      if (section.dataset.live) {
+        modalLinks.innerHTML += `<a href="${section.dataset.live}" target="_blank" rel="noopener noreferrer" class="modal-link" data-cursor-hover>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+          Live Demo</a>`;
+      }
+      if (section.dataset.source) {
+        modalLinks.innerHTML += `<a href="${section.dataset.source}" target="_blank" rel="noopener noreferrer" class="modal-link" data-cursor-hover>
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Source</a>`;
+      }
+
+      modal.scrollTop = 0;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lenis.stop();
+      history.pushState({ modal: true }, '');
+
+      // Focus the back button after transition completes
+      setTimeout(() => {
+        document.getElementById('modal-back').focus();
+      }, 800);
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      lenis.start();
+
+      // Restore focus to the element that opened the modal
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+        previouslyFocusedElement = null;
+      }
+    }
+
+    // Focus trap — keep Tab cycling within the modal
+    modal.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = modal.querySelectorAll('button, a[href], input, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Open on showcase click
+    document.querySelectorAll('.project-showcase').forEach(section => {
+      section.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        openModal(section);
+      });
+    });
+
+    // Close handlers
+    document.getElementById('modal-back').addEventListener('click', () => {
+      history.back();
+    });
+
+    window.addEventListener('popstate', () => {
+      if (modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        history.back();
+      }
+    });
+
+    // ── Mobile Menu ──
     const menuBtn = document.getElementById('menu-btn');
     const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
-    const openMenu = () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; };
-    const closeMenu = () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; };
-    menuBtn.addEventListener('click', openMenu);
-    menuClose.addEventListener('click', closeMenu);
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeMobileMenu = () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
+    menuClose.addEventListener('click', closeMobileMenu);
     document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // ── Theme (system preference, no toggle) ──
+    function getPreferredTheme() {
+      const stored = localStorage.getItem('theme');
+      if (stored) return stored;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    setTheme(getPreferredTheme());
+
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+      setTheme(e.matches ? 'light' : 'dark');
     });
   </script>
 </body>
