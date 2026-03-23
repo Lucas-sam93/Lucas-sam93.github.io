@@ -1,10 +1,10 @@
-# Images
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webp
-*.svg
-*.ico
-*.bmp
-*.tiff
+# Images at root level (use assets/ folder instead)
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+/*.webp
+/*.svg
+/*.ico
+/*.bmp
+/*.tiff
