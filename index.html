@@ -302,6 +302,35 @@
     .nav-resume:hover { border-color: #fff; }
 
     /* Mobile menu */
+    .nav-theme-toggle {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 0.25rem;
+      display: flex;
+      align-items: center;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+    .nav-theme-toggle:hover { opacity: 1; }
+
+    .mobile-theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Koulen', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+    .mobile-theme-toggle:hover { opacity: 1; }
+
     .nav-hamburger {
       display: none;
       background: none;
@@ -704,7 +733,7 @@
     .modal-subtitle {
       font-size: 1.1rem;
       font-weight: 300;
-      color: var(--text-secondary);
+      color: var(--text-accent);
       margin-bottom: 3rem;
       transition: color var(--transition-theme);
     }
@@ -790,7 +819,7 @@
     .case-study-text {
       font-size: 1rem;
       font-weight: 300;
-      color: var(--text-secondary);
+      color: var(--text-accent);
       line-height: 1.9;
       transition: color var(--transition-theme);
     }
@@ -809,7 +838,7 @@
       padding-left: 1.25rem;
       font-size: 1rem;
       font-weight: 300;
-      color: var(--text-secondary);
+      color: var(--text-accent);
       line-height: 1.8;
       margin-bottom: 0.5rem;
       transition: color var(--transition-theme);
@@ -1241,6 +1270,14 @@
       <a href="#projects" class="nav-link" data-cursor-hover>Projects</a>
       <a href="#about" class="nav-link" data-cursor-hover>About</a>
       <a href="#contact" class="nav-link" data-cursor-hover>Contact</a>
+      <button class="nav-theme-toggle" id="theme-toggle" aria-label="Toggle theme" data-cursor-hover>
+        <svg id="theme-icon-sun" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+          <circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg id="theme-icon-moon" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
       <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-resume" data-cursor-hover>Resume</a>
     </div>
 
@@ -1262,6 +1299,15 @@
     <a href="#about" class="mobile-link" data-cursor-hover>About</a>
     <a href="#contact" class="mobile-link" data-cursor-hover>Contact</a>
     <a href="Lucas_Sam_Resume.pdf" target="_blank" rel="noopener noreferrer" class="mobile-link" data-cursor-hover>Resume</a>
+    <button class="mobile-theme-toggle" id="mobile-theme-toggle" data-cursor-hover aria-label="Toggle theme">
+      <svg id="mobile-theme-icon-sun" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+        <circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
+      <svg id="mobile-theme-icon-moon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display:none">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+      </svg>
+      <span id="mobile-theme-label"></span>
+    </button>
   </div>
 
   <!-- Particle canvas (fixed behind everything) -->
@@ -1410,7 +1456,6 @@
         Back
       </button>
     </div>
-    <img class="modal-hero-img" id="modal-img" src="" alt="" />
     <div class="modal-body">
       <p class="modal-label" id="modal-label"></p>
       <h2 class="modal-title" id="modal-title"></h2>
@@ -1863,6 +1908,17 @@
         ],
         verdict: 'The discriminative signal transfers across modalities \u2014 wearables can distinguish normal from abnormal cardiac rhythms. But the calibration gap means a clinical ECG model can\'t be deployed directly on wearable data without domain-adapted thresholds. The project ships as BeatCheck, a FastAPI web app that accepts Apple Health exports and returns risk tiers (Low/Intermediate/High) based on 30-minute windowed analysis. It\'s not a diagnostic tool \u2014 it\'s a screening signal that could prompt the 49% of unchecked Singaporeans to seek formal evaluation before an acute event.',
       },
+      'W.O.W. \u2014 Worth-Or-What?': {
+        question: 'Singapore\'s HDB resale market is opaque — prices for the same flat type in the same town can vary by $100,000+ based on floor, remaining lease, and proximity to amenities that buyers can\'t easily quantify. Agents are incentive-misaligned, public transaction data exists but requires significant processing to use, and lifestyle fit — whether a town actually matches how a buyer lives — is almost never factored into the search. Can a data-driven tool give buyers a fair price range and a personalised town shortlist based on how they actually want to live?',
+        data: 'Analyzed 270,620 HDB resale transactions from data.gov.sg spanning 26 towns with 76 engineered features — flat type, storey range, floor area, remaining lease, and proximity scores for MRT stations, hawker centres, shopping malls, and schools. Led a 7-person team across two workstreams as Product Manager: the EDA team (Claire, Ganesh, Stan) handled exploratory analysis, outlier treatment, and feature engineering; the Modelling team (Nureisya, Din, Manyu) benchmarked LightGBM, XGBoost, Random Forest, and Linear Regression for both regression and classification tasks. Deployed as a Flask web app with joblib-serialized models and a responsive HTML/CSS frontend.',
+        story: [
+          'LightGBM was selected over XGBoost for price regression despite XGBoost\'s marginally higher test R² — LightGBM\'s faster inference time and better generalisation balance made it the right choice for a production environment requiring real-time predictions. The train-test gap of just 0.0013 confirmed generalisation over overfitting',
+          'The price estimator achieved 95.13% R² with an RMSE of $38,508. The ±10% confidence range displayed to users explicitly accounts for micro-location variance (view, specific block position, negotiation) not fully captured in the feature set — making the uncertainty transparent rather than hiding it behind a single point estimate',
+          'Town recommendation was solved in two stages: 26 towns were first profiled using K-Means clustering on lifestyle features (amenity density, region, flat mix), then a LightGBM classifier was trained on top of those cluster assignments. Separating unsupervised town profiling from supervised matching improved both interpretability and accuracy over end-to-end classification',
+          'The town recommender hit 99.71% test accuracy at 11.23-second runtime — fast enough for live query response. Users filter by region, budget, and flat size; each recommendation surfaces a match score and lifestyle cluster profile explaining why a town was selected for them specifically',
+        ],
+        verdict: 'W.O.W. turns an opaque, agent-mediated market into a transparent decision tool. A buyer enters their budget, flat size preference, and lifestyle priorities — and gets a price range anchored in 270,000+ historical transactions alongside town recommendations matched to how they actually want to live. The 95% R² and 99.71% accuracy aren\'t just model metrics — they define the margin of confidence that separates a data-backed offer from a guess.',
+      },
       'JD-Match': {
         question: 'Why do qualified candidates get rejected before a human ever reads their resume? ATS filters scan for keyword alignment, but job seekers have no visibility into what\'s missing, what\'s weak, or what the system actually scores. Most people rewrite blindly \u2014 guessing which keywords matter and hoping for the best. What if the gap between what a job description demands and what a resume communicates could be made visible in one click?',
         data: 'Built a full-stack application (React 18 + Vite frontend, Node.js/Express backend, Vercel Serverless in production) powered by Google Gemini 2.5 Flash. The AI engine uses structured JSON prompting with a zero-inference constraint: it only scores skills explicitly stated with supporting evidence, never inferred from context. Document parsing handles both PDF (pdf-parse) and Word (mammoth) uploads client-side, with jsPDF for refined resume export.',
@@ -2057,7 +2113,7 @@
       link.addEventListener('click', closeMobileMenu);
     });
 
-    // ── Theme (system preference, no toggle) ──
+    // ── Theme toggle ──
     function getPreferredTheme() {
       const stored = localStorage.getItem('theme');
       if (stored) return stored;
@@ -2067,12 +2123,29 @@
     function setTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
+      // sync icons: sun shown in dark mode (click → go light), moon shown in light mode (click → go dark)
+      const isDark = theme === 'dark';
+      document.getElementById('theme-icon-sun').style.display = isDark ? 'block' : 'none';
+      document.getElementById('theme-icon-moon').style.display = isDark ? 'none' : 'block';
+      document.getElementById('mobile-theme-icon-sun').style.display = isDark ? 'block' : 'none';
+      document.getElementById('mobile-theme-icon-moon').style.display = isDark ? 'none' : 'block';
+      document.getElementById('mobile-theme-label').textContent = isDark ? 'Light Mode' : 'Dark Mode';
     }
 
     setTheme(getPreferredTheme());
 
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-      setTheme(e.matches ? 'light' : 'dark');
+      if (!localStorage.getItem('theme')) setTheme(e.matches ? 'light' : 'dark');
+    });
+
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    document.getElementById('mobile-theme-toggle').addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
     });
   </script>
 </body>
