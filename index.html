@@ -1328,11 +1328,11 @@
     <!-- 1. Heartbeat or Noise -->
     <section class="project-showcase" data-cursor-hover
       data-img="assets/capstone-ecg-screenshot.png"
-      data-title="Heartbeat or Noise?"
+      data-title="Heart On Your Wrist"
       data-subtitle="Evaluating Consumer Wearables as Cardiac Screening Proxies"
-      data-label="Capstone · In Progress"
-      data-desc="Cardiovascular disease causes 30.5% of all deaths in Singapore — yet 49% of residents haven't had a health checkup in the past year. Training ML classifiers on 8,500+ clinical ECG recordings to test whether consumer wearable signals can serve as a low-barrier screening proxy."
-      data-tags="Python,scikit-learn,Pandas,WFDB,Jupyter"
+      data-label="ML · Healthcare · Capstone"
+      data-desc="Cardiovascular disease kills 22 Singaporeans daily, yet 49% of residents skip annual checkups. Trained SVM on 8,187 clinical ECG recordings — achieving 0.91 AUROC and 84.4% sensitivity — and validated signal transfer across two wearable modalities (MIMIC finger PPG + Apple Watch). Deployed as BeatCheck, a FastAPI cardiac risk-tier screening tool."
+      data-tags="Python,scikit-learn,FastAPI,NeuroKit2,Pandas,WFDB,Jupyter"
       data-source="https://github.com/Lucas-sam93/ga-capstone-heartbeat-or-noise">
       <div class="project-showcase-inner">
         <div class="project-image-wrap">
@@ -1341,12 +1341,11 @@
         <div class="project-text">
           <span class="project-number">01</span>
           <div class="project-badges">
-            <span class="badge badge-in-progress">In Progress</span>
             <span class="badge badge-capstone">Capstone</span>
           </div>
           <p class="project-label">Machine Learning · Healthcare</p>
-          <h3 class="project-name">Heartbeat or Noise?</h3>
-          <p class="project-desc">Can a $300 smartwatch detect heart disease as reliably as a $3,000 clinical ECG? Tested across 8,500+ recordings with 84.4% sensitivity and 0.91 AUROC.</p>
+          <h3 class="project-name">Heart On Your Wrist</h3>
+          <p class="project-desc">Can a $300 smartwatch detect heart disease as reliably as a $3,000 clinical ECG? Achieved 0.91 AUROC and 84.4% sensitivity across 8,187 clinical ECG recordings — then validated the signal transfer to real wearable PPG data.</p>
           <span class="project-view">View Project <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg></span>
         </div>
       </div>
@@ -1382,7 +1381,7 @@
       data-subtitle="AI Resume-to-Job Alignment Tool"
       data-label="Web App · AI"
       data-desc="Most job seekers don't know why their resumes get rejected by ATS filters. Built a tool that scores resume-to-job alignment across 15 categories, flags missing keywords, and generates rewritten bullet points — turning a manual, guesswork-heavy process into a one-click analysis."
-      data-tags="React,Tailwind CSS,Node.js"
+      data-tags="React,Vite,Tailwind CSS,Node.js,Gemini API,Framer Motion"
       data-live="https://jd-match.vercel.app"
       data-source="https://github.com/Lucas-sam93/JD-Match">
       <div class="project-showcase-inner">
@@ -1897,7 +1896,7 @@
 
     // ── Project Case Study Data ──
     const projectDetails = {
-      'Heartbeat or Noise?': {
+      'Heart On Your Wrist': {
         question: 'Cardiovascular disease kills 22 Singaporeans daily, yet 49% of residents skip their annual health checkup. Clinical ECG screening requires hospital visits and specialist referrals \u2014 but what if the smartwatch already on your wrist could flag cardiac risk before you ever see a doctor? Can a $300 consumer wearable produce signals reliable enough to serve as a screening proxy for a $3,000 clinical ECG?',
         data: 'Trained on 8,187 clinical ECG recordings from the Physionet 2017 Challenge, deliberately locked to only 8 HRV features extractable from consumer wearables (RMSSD, SDNN, Mean RR, pNN50, HR Mean/Std, RR Skewness/Kurtosis). Frequency domain features were permanently excluded because wearables can\'t capture them. Validated across two modalities: MIMIC PERform AF (35 ICU subjects with finger PPG + ground-truth ECG) and 4.8 years of personal Apple Watch data (478,000+ heart rate records). All models evaluated with pre-registered thresholds: sensitivity \u2265 80%, specificity \u2265 75%.',
         story: [
